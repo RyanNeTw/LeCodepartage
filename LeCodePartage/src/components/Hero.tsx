@@ -13,7 +13,7 @@ const Hero: React.FC<{ image?: string; reactElement: ReactElement }> = ({
       >
         {reactElement}
 
-        {image ? <img src={`./images/${image}`} /> : null}
+        {image ? <img src={`./images/${image}`} className="pr-16" /> : null}
         <img
           src="./images/banner.png"
           className="absolute -z-50 top-2/4 right-1/4"
