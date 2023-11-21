@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <>
-      <footer className="bg-dark-blue px-page flex flex-col gap-24 pt-big pb-medium">
+      <footer className="bg-dark-blue px-page flex flex-col gap-24 pt-big pb-small">
         <section className="flex flex-row justify-between items-center">
           <div className="flex flex-row gap-2 items-center">
             <img src="./images/simpleLogo.png" alt="LeCodePartagé's logo" />
