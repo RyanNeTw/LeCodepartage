@@ -10,6 +10,7 @@ export default {
         "dark-blue": "#0D1F2D",
         "white-color": "#FFFCFB",
         "black-color": "#222222",
+        grey: "#D9D9D9",
       },
       padding: {
         reallySmall: "0.25rem",

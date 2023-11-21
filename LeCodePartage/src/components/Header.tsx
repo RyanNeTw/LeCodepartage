@@ -1,12 +1,16 @@
+import { Link } from "react-router-dom";
+
 function Header() {
   return (
     <>
       <header className="bg-dark-blue flex flex-row justify-between items-center px-page py-reallySmall">
-        <img
-          src="./images/LogoWithNameAside.png"
-          alt="LeCodePartagé's logo with text aside"
-          className="h-12"
-        />
+        <Link to="/">
+          <img
+            src="./images/LogoWithNameAside.png"
+            alt="LeCodePartagé's logo with text aside"
+            className="h-12"
+          />
+        </Link>
         <nav>
           <ul className="flex flex-row gap-8 items-center">
             <li className="text-white-color cursor-pointer headerNavLink relative transition hover:scale-110 ">
