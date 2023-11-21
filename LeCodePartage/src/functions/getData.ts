@@ -15,9 +15,12 @@ export const getMember = async (
 };
 
 export const getArticles = async (): Promise<GetDataType<ArticlesType>> => {
-  const response = await fetch(
-    "http://localhost:1337/api/articles/?populate=*",
-  );
+  const response = await fetch("http://localhost:1337/api/articles?populate=*");
+  return await response.json();
+};
+
+export const getEvents = async (): Promise<GetDataType<ArticlesType>> => {
+  const response = await fetch("http://localhost:1337/api/articles?populate=*");
   return await response.json();
 };
 
