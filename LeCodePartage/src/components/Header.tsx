@@ -14,10 +14,10 @@ function Header() {
         <nav>
           <ul className="flex flex-row gap-8 items-center">
             <li className="text-white-color cursor-pointer headerNavLink relative transition hover:scale-110 ">
-              Blog
+              <Link to="/">Blog</Link>
             </li>
             <li className="text-white-color cursor-pointer headerNavLink relative transition hover:scale-110 ">
-              A propos
+              <Link to="/a-propos">A propos </Link>
             </li>
             <li>
               <button className="bg-dark-red px-small py-reallySmall text-white-color rounded-3xl cursor-pointer">
