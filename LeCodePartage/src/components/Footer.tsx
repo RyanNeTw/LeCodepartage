@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Footer() {
   return (
     <>
@@ -19,7 +21,7 @@ function Footer() {
             <input
               type="submit"
               value="Envoyer"
-              className="bg-dark-red rounded-r-3xl py-midSmall px-small text-white-color"
+              className="bg-dark-red rounded-r-3xl py-midSmall px-small text-white-color cursor-pointer"
             />
           </div>
         </section>
@@ -39,9 +41,12 @@ function Footer() {
               <h2 className="text-light-red font-bold text-2xl">A propos :</h2>
               <div className="flex flex-row gap-8 items-center">
                 <div className="flex flex-col gap-4">
-                  <h5 className="text-white-color hover:underline cursor-pointer">
+                  <Link
+                    to="/a-propos"
+                    className="text-white-color hover:underline cursor-pointer"
+                  >
                     Qui sommes-nous ?
-                  </h5>
+                  </Link>
                   <h5 className="text-white-color hover:underline cursor-pointer">
                     Nous contacter
                   </h5>
@@ -68,10 +73,7 @@ function Footer() {
           <img src="./images/peopleApprouving.png" alt="People approuving" />
         </section>
 
-        <img
-          src="./images/logoWithTitleAbove.png"
-          className="w-24 self-center"
-        />
+        <img src="./images/simpleLogo.png" className="w-16 self-center" />
       </footer>
     </>
   );

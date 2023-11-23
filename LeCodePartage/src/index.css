@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background-color: #fff9f3;
+}
+
 .headerNavLink::before {
   content: "";
   position: absolute;

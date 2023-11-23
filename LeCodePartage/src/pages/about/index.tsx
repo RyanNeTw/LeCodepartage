@@ -10,19 +10,20 @@ function AboutPage() {
   return (
     <>
       <Hero image="computeWithGuy.png" reactElement={<HeroElement />} />
-        <div className="flex flex-col gap-12 py-medium">
-            <div className="px-page flex flex-col gap-12">
-                <Testimonial
-                title="Notre Histoire :"
-                text={text1}
-                />
-                <Testimonial title="En Quelques mots :" text={text1} direction={true} />
-            </div>
-            <HeroStats />
-            <div className="px-page">
-                <MembersList />
-            </div>
+      <div className="flex flex-col gap-12 py-medium">
+        <div className="px-page flex flex-col gap-12">
+          <Testimonial title="Notre Histoire :" text={text1} />
+          <Testimonial
+            title="En Quelques mots :"
+            text={text1}
+            direction={true}
+          />
         </div>
+        <HeroStats />
+        <div className="px-page">
+          <MembersList />
+        </div>
+      </div>
     </>
   );
 }
