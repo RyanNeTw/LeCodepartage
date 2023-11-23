@@ -5,8 +5,12 @@ const ArticleCard: FC<{
   articles?: string[];
   isBig?: boolean;
   title: string;
-}> = ({ articles, isBig = false, title }) => {
-  const elements = articles ?? [1, 2, 3, 4, 5, 6];
+  twice?: boolean;
+}> = ({ articles, isBig = false, title, twice = false }) => {
+  let elements = articles ?? [1, 2, 3, 4, 5, 6];
+  elements = isBig ? [1] : elements;
+  elements = twice ? [1, 2] : elements;
+
   return (
     <>
       <h2 className="text-light-red text-2xl pb-4">{title}</h2>

@@ -6,16 +6,9 @@ function MainPage() {
     <>
       <Hero image="lightInSpace.png" reactElement={<HeroMainPage />} />
       <div className="w-full px-page py-medium">
-        <ArticleCard
-          isBig={true}
-          articles={["e"]}
-          title={"Nos articles à la une :"}
-        />
+        <ArticleCard isBig={true} title={"Nos articles à la une :"} />
         <ArticleCard title={"Nos articles { } :"} />
-        <ArticleCard
-          articles={["e", "e"]}
-          title={"Au cas où vous l’auriez manqué :"}
-        />
+        <ArticleCard twice={true} title={"Au cas où vous l’auriez manqué :"} />
       </div>
     </>
   );
