@@ -24,3 +24,27 @@ body {
   transform-origin: left;
   transform: scaleX(1);
 }
+
+.authorCard::after {
+  content: "";
+  position: absolute;
+  z-index: -50;
+  top: 0.25rem;
+  right: 0.25rem;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background-color: #da2c38;
+}
+
+.authorCard::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  bottom: 0.25rem;
+  left: 0.25rem;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background-color: #347bb1;
+}
