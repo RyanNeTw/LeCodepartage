@@ -6,18 +6,16 @@ function MainPage() {
     <>
       <Hero image="lightInSpace.png" reactElement={<HeroMainPage />} />
       <div className="w-full px-page py-medium">
-        <div className="pb-8">
-          <h2 className="text-light-red text-2xl pb-4">
-            Nos articles à la une :
-          </h2>
-          <ArticleCard isBig={true} articles={["e"]} />
-        </div>
-        <div className="pb-8">
-          <h2 className="text-light-red text-2xl pb-4">
-            Nos articles {"{ }"} :
-          </h2>
-          <ArticleCard />
-        </div>
+        <ArticleCard
+          isBig={true}
+          articles={["e"]}
+          title={"Nos articles à la une :"}
+        />
+        <ArticleCard title={"Nos articles { } :"} />
+        <ArticleCard
+          articles={["e", "e"]}
+          title={"Au cas où vous l’auriez manqué :"}
+        />
       </div>
     </>
   );

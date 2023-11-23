@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <>
-      <header className="bg-dark-blue flex flex-row justify-between items-center px-page py-reallySmall">
+      <header className="bg-dark-blue flex flex-row justify-between items-center px-page py-small">
         <Link to="/">
           <img
-            src="./images/LogoWithNameAside.png"
+            src="./images/simpleLogo.png"
             alt="LeCodePartagé's logo with text aside"
             className="h-12"
           />
