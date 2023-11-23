@@ -29,22 +29,22 @@ body {
   content: "";
   position: absolute;
   z-index: -50;
-  top: 0.25rem;
-  right: 0.25rem;
+  top: 0.2rem;
+  right: 0.2rem;
   width: 100%;
   height: 100%;
   border-radius: 100%;
-  background-color: #da2c38;
+  background-color: #347bb1;
 }
 
 .authorCard::before {
   content: "";
   position: absolute;
   z-index: -1;
-  bottom: 0.25rem;
-  left: 0.25rem;
+  bottom: 0.2rem;
+  left: 0.2rem;
   width: 100%;
   height: 100%;
   border-radius: 100%;
-  background-color: #347bb1;
+  background-color: #da2c38;
 }
