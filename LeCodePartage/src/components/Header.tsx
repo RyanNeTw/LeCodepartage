@@ -20,9 +20,12 @@ function Header() {
               <Link to="/a-propos">A propos </Link>
             </li>
             <li>
-              <button className="bg-dark-red px-small py-reallySmall text-white-color rounded-3xl cursor-pointer">
+              <Link
+                to="/contacte"
+                className="bg-dark-red px-small py-reallySmall text-white-color rounded-3xl cursor-pointer"
+              >
                 Nous contacter
-              </button>
+              </Link>
             </li>
           </ul>
         </nav>

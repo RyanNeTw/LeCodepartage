@@ -47,22 +47,31 @@ function Footer() {
                   >
                     Qui sommes-nous ?
                   </Link>
-                  <h5 className="text-white-color hover:underline cursor-pointer">
+                  <Link
+                    to="/contacte"
+                    className="text-white-color hover:underline cursor-pointer"
+                  >
                     Nous contacter
-                  </h5>
+                  </Link>
                 </div>
                 <div className="flex flex-col gap-4">
-                  <h5 className="text-white-color hover:underline cursor-pointer">
+                  <Link
+                    to="/cgu"
+                    className="text-white-color hover:underline cursor-pointer"
+                  >
                     CGU
-                  </h5>
+                  </Link>
                   <h5 className="text-white-color hover:underline cursor-pointer">
                     Confidentialité
                   </h5>
                 </div>
                 <div className="flex flex-col gap-4">
-                  <h5 className="text-white-color hover:underline cursor-pointer">
+                  <Link
+                    to="/mentions-légales"
+                    className="text-white-color hover:underline cursor-pointer"
+                  >
                     Mentions légales
-                  </h5>
+                  </Link>
                   <h5 className="text-white-color hover:underline cursor-pointer">
                     Gérer mes cookies
                   </h5>
