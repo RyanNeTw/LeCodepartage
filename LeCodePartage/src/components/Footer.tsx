@@ -73,7 +73,9 @@ function Footer() {
           <img src="./images/peopleApprouving.png" alt="People approuving" />
         </section>
 
-        <img src="./images/simpleLogo.png" className="w-16 self-center" />
+        <Link to="/" className="self-center">
+          <img src="./images/simpleLogo.png" className="w-16" />
+        </Link>
       </footer>
     </>
   );
