@@ -32,7 +32,7 @@ const AuthorCard: FC<{
         }`}
       >
         <Link
-          to={`/auteur/${name?.replace(" ", "-")}`}
+          to={`/auteur/${name?.replace(/\s/g, "-")}`}
           className="relative z-10 authorCard"
         >
           <div

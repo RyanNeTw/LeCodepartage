@@ -13,7 +13,7 @@ const ArticleCard: FC<{
 
   return (
     <>
-      <h2 className="text-light-red text-2xl pb-4">{title}</h2>
+      <h2 className="text-light-red text-2xl pb-8">{title}</h2>
       <ul className="flex flex-wrap w-full gap-8 justify-between pb-12">
         {elements?.map((element, index) => (
           <li key={index} className={isBig ? "w-full" : "w-5/12"}>

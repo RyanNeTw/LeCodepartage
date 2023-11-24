@@ -14,4 +14,5 @@ React Js - Tailwind - TypeScript - Strapie
 - Prettier
 
 #### To use prettier : `npx prettier . --write`
+
 # LeCodepartage
