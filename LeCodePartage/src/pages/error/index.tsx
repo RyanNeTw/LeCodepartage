@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Error404() {
   return (
     <>
-      <div className="flex flex-col gap-2 justify-center items-center h-screen">
+      <div className="flex flex-col gap-2 justify-center items-center min-h-screen">
         <img src="./images/error404.png" alt="Robot" />
         <h3 className="font-bold text-lg">
           Retour à la
