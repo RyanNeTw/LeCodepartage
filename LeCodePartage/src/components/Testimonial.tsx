@@ -1,4 +1,5 @@
 import { FC } from "react";
+import Title from "./Title";
 
 const Testimonial: FC<{
   direction?: boolean;
@@ -14,7 +15,7 @@ const Testimonial: FC<{
         } justify-between gap-12`}
       >
         <div className="flex flex-col gap-2 w-1/2 py-small">
-          <h3 className="text-light-red text-2xl font-bold">{title}</h3>
+          <Title title={title} />
           <p className="text-black-color">{text} </p>
         </div>
         {image ? (

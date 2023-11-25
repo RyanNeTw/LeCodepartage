@@ -61,9 +61,12 @@ function Footer() {
                   >
                     CGU
                   </Link>
-                  <h5 className="text-white-color hover:underline cursor-pointer">
+                  <Link
+                    to="/confidentialité"
+                    className="text-white-color hover:underline cursor-pointer"
+                  >
                     Confidentialité
-                  </h5>
+                  </Link>
                 </div>
                 <div className="flex flex-col gap-4">
                   <Link

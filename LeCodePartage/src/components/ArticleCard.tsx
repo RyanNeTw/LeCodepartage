@@ -1,5 +1,6 @@
 import { FC } from "react";
 import AuthorCard from "./AuthorCard";
+import Title from "./Title";
 
 const ArticleCard: FC<{
   articles?: string[];
@@ -13,8 +14,8 @@ const ArticleCard: FC<{
 
   return (
     <>
-      <h2 className="text-light-red text-2xl pb-8">{title}</h2>
-      <ul className="flex flex-wrap w-full gap-8 justify-between pb-12">
+      <Title title={title} />
+      <ul className="flex flex-wrap w-full gap-8 justify-between pb-12 pt-8">
         {elements?.map((element, index) => (
           <li key={index} className={isBig ? "w-full" : "w-5/12"}>
             <ArticleCardSkelton isBig={isBig} />
