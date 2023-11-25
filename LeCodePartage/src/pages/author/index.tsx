@@ -23,7 +23,7 @@ const AuthorPage = () => {
           />
         }
       />
-      <div className="px-page py-medium">
+      <div className="px-page py-medium bg-beige">
         <ArticleCard title="Dernier article publié :" isBig={true} />
         <ArticleCard title="Ses articles { } :" />
         <ArticleCard title="Au cas où vous l’auriez manqué :" twice={true} />
