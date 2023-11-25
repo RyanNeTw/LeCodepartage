@@ -1,4 +1,5 @@
 import { FC } from "react";
+import Arguments from "../../components/about/Arguments";
 import HeroStats from "../../components/about/HeroStats";
 import MembersList from "../../components/about/MembersList";
 import Hero from "../../components/Hero";
@@ -61,6 +62,7 @@ function AboutPage() {
               ))}
             </ul>
           </div>
+          <Arguments />
           <MembersList />
         </div>
       </div>
