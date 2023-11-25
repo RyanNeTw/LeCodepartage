@@ -35,7 +35,7 @@ const LegalNotice = () => {
             Conformément à la loi informatique et libertés du 06 janvier 1978,
             vous pouvez à tout moment modifier ou supprimer les renseignements
             liés à votre inscription. Ces informations vous concernant étant
-            confidentielles, HelloWork s’engage à les protéger.
+            confidentielles, LeCodePartage s’engage à les protéger.
           </p>
           <p>
             Vous disposez d’un droit d’accès, de modification, de rectification

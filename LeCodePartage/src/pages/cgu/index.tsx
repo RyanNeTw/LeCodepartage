@@ -103,7 +103,7 @@ const Cgu = () => {
   );
 };
 
-const Paragraph: FC<{ paragraph: string }> = ({ paragraph }) => {
+export const Paragraph: FC<{ paragraph: string }> = ({ paragraph }) => {
   return (
     <>
       <p className="pl-medium">{paragraph}</p>
@@ -111,7 +111,7 @@ const Paragraph: FC<{ paragraph: string }> = ({ paragraph }) => {
   );
 };
 
-const LilTitle: FC<{ title: string }> = ({ title }) => {
+export const LilTitle: FC<{ title: string }> = ({ title }) => {
   return (
     <>
       <h3 className="text-lg text-light-blue pl-medium">{title} </h3>
