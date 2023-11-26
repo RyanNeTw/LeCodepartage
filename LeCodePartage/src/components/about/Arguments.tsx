@@ -43,7 +43,7 @@ const Arguments = () => {
           {elements?.map((element, index) => (
             <li
               key={index}
-              className="bg-dark-blue hover:bg-light-blue w-1/4 p-small rounded-lg relative overflow-hidden group"
+              className="bg-dark-blue hover:bg-light-blue hover:scale-105 transition w-1/4 p-small rounded-lg relative overflow-hidden group"
             >
               <div>{element.icon}</div>
               <p className="text-white-color">{element.text}</p>
