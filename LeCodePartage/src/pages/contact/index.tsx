@@ -14,17 +14,17 @@ const ContactPage = () => {
               <input
                 type="text"
                 placeholder="Votre prénom"
-                className="w-1/2 border border-dark-blue bg-beige px-small py-midSmall rounded-3xl text-dark-blue"
+                className="w-1/2 border border-dark-blue bg-white-color px-small py-midSmall rounded-3xl text-dark-blue"
               />
               <input
                 type="text"
                 placeholder="Votre e-mail"
-                className="w-1/2 border border-dark-blue bg-beige px-small py-midSmall rounded-3xl text-dark-blue"
+                className="w-1/2 border border-dark-blue bg-white-color px-small py-midSmall rounded-3xl text-dark-blue"
               />
             </div>
             <textarea
               placeholder="De quel sujet voulez-vous parler ?"
-              className="border border-dark-blue bg-beige px-small py-midSmall rounded-3xl text-dark-blue"
+              className="border border-dark-blue bg-white-color px-small py-midSmall rounded-3xl text-dark-blue"
             />
             <input
               type="submit"
