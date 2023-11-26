@@ -1,13 +1,17 @@
 import ArticleCard from "../../components/ArticleCard";
 import Hero from "../../components/Hero";
+import HeroWithList from "../../components/HeroWithList";
 
 function MainPage() {
   return (
     <>
       <Hero image="lightInSpace.png" reactElement={<HeroMainPage />} />
-      <div className="w-full px-page py-medium bg-beige">
+      <div className="w-full px-page py-medium bg-white-color">
         <ArticleCard isBig={true} title={"Nos articles à la une :"} />
         <ArticleCard title={"Nos articles { } :"} />
+      </div>
+      <HeroWithList />
+      <div className="w-full px-page py-medium">
         <ArticleCard twice={true} title={"Au cas où vous l’auriez manqué :"} />
       </div>
     </>
