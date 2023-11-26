@@ -35,7 +35,7 @@ const Testimonial: FC<{
                 src="./images/simpleLogo.png"
                 alt="LeCodePartagé's logo"
                 className={`absolute -top-4 w-16 -left-4 z-50 ${
-                  direction ? "left-0" : "right-0"
+                  direction ? "-left-4" : ""
                 }`}
               />
             </div>
