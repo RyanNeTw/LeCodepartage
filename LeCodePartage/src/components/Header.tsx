@@ -1,12 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Header() {
+  const route = useLocation();
+  console.log({ route }, window.location.origin);
+
   return (
     <>
       <header className="bg-dark-blue flex flex-row justify-between items-center px-page py-small">
         <Link to="/">
           <img
-            src="./images/simpleLogo.png"
+            src={`${window.location.origin}/images/simpleLogo.png`}
             alt="LeCodePartagé's logo with text aside"
             className="h-12"
           />

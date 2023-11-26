@@ -6,7 +6,10 @@ function Footer() {
       <footer className="bg-dark-blue px-page flex flex-col gap-24 pt-big pb-small min-h-screen">
         <section className="flex flex-row justify-between items-center">
           <div className="flex flex-row gap-2 items-center">
-            <img src="./images/simpleLogo.png" alt="LeCodePartagé's logo" />
+            <img
+              src={`${window.location.origin}/images/simpleLogo.png`}
+              alt="LeCodePartagé's logo"
+            />
             <h4 className="text-white-color w-2/3 font-bold">
               {" "}
               Inscrivez-vous à notre newsletter
@@ -82,11 +85,17 @@ function Footer() {
               </div>
             </div>
           </div>
-          <img src="./images/peopleApprouving.png" alt="People approuving" />
+          <img
+            src={`${window.location.origin}/images/peopleApprouving.png`}
+            alt="People approuving"
+          />
         </section>
 
         <Link to="/" className="self-center">
-          <img src="./images/simpleLogo.png" className="w-16" />
+          <img
+            src={`${window.location.origin}/images/simpleLogo.png`}
+            className="w-16"
+          />
         </Link>
       </footer>
     </>

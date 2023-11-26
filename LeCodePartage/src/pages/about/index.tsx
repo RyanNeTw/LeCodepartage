@@ -12,8 +12,11 @@ type WhyUsType = {
 };
 
 function AboutPage() {
-  const text1 =
-    "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié.";
+  const text1: string =
+    "Notre blog dédié aux projets open source français a débuté comme une idée partagée par un groupe de passionnés de la technologie. Convaincus de l'importance des contributions françaises à l'open source, nous avons rassemblé une équipe diversifiée. Notre objectif était de créer une plateforme mettant en lumière ces projets et leurs créateurs.";
+
+  const text2: string =
+    "Nous sommes une équipe de sept développeurs passionnés par l'open source français. Notre mission principale est de partager cette passion avec d'autres personnes partout dans le monde. Réunis par notre amour commun pour la technologie et l'innovation, nous nous sommes engagés à mettre en lumière les projets open source créatifs et innovants qui émergent de la communauté française.";
 
   const WhyUs: WhyUsType[] = [
     {
@@ -43,10 +46,15 @@ function AboutPage() {
       <Hero image="computeWithGuy.png" reactElement={<HeroElement />} />
       <div className="flex flex-col gap-12 py-medium">
         <div className="px-page flex flex-col gap-12">
-          <Testimonial title="Notre Histoire :" text={text1} />
+          <Testimonial
+            title="Notre Histoire :"
+            text={text1}
+            image="teamStudying.png"
+          />
           <Testimonial
             title="En Quelques mots :"
-            text={text1}
+            image="team.png"
+            text={text2}
             direction={true}
           />
         </div>
