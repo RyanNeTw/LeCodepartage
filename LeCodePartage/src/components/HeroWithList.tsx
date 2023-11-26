@@ -1,5 +1,4 @@
 import { FC } from "react";
-import Title from "./Title";
 
 type EventType = {
   date: string;
