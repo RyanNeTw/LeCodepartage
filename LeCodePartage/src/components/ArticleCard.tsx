@@ -15,7 +15,10 @@ const ArticleCard: FC<{
   return (
     <>
       <Title title={title} />
-      <ul className="flex flex-wrap w-full gap-8 justify-between pb-12 pt-8">
+      <ul
+        className="flex flex-wrap w-full gap-8 justify-between pb-12 pt-8"
+        id={`${isBig ? "" : "firstArticle"}`}
+      >
         {elements?.map((element, index) => (
           <li key={index} className={isBig ? "w-full" : "w-5/12"}>
             <ArticleCardSkelton isBig={isBig} />

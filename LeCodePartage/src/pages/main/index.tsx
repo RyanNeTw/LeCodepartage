@@ -1,3 +1,4 @@
+import Arrow from "../../assets/Arrow";
 import ArticleCard from "../../components/ArticleCard";
 import Hero from "../../components/Hero";
 import HeroWithList from "../../components/HeroWithList";
@@ -29,10 +30,30 @@ const HeroMainPage = () => {
           Votre Guide de l'<span className="text-light-blue">Open Source</span>{" "}
           à la <span className="text-light-red">Française</span>
         </h3>
-        <button className="px-small py-reallySmall bg-dark-red text-white-color rounded-3xl">
-          Découvrir
-        </button>
+        <div className="flex flex-row gap-4">
+          <a
+            href="#firstArticle"
+            className="px-small py-reallySmall bg-dark-red text-white-color rounded-3xl hover:bg-light-red"
+          >
+            Découvrir
+          </a>
+          <LinkedinButton />
+        </div>
       </div>
+    </>
+  );
+};
+
+export const LinkedinButton = () => {
+  return (
+    <>
+      <a
+        href="https://www.linkedin.com/in/le-code-partage-3506492a2/"
+        target="_blank"
+        className="px-small py-reallySmall border border-light-blue text-light-blue rounded-3xl hover:bg-light-blue hover:text-white-color flex flex-row gap-2 items-center"
+      >
+        LinkedIn
+      </a>
     </>
   );
 };
