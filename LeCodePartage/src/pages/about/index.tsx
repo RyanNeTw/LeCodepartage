@@ -5,6 +5,7 @@ import MembersList from "../../components/about/MembersList";
 import Hero from "../../components/Hero";
 import Testimonial from "../../components/Testimonial";
 import Title from "../../components/Title";
+import { LinkedinButton } from "../main";
 
 type WhyUsType = {
   title: string;
@@ -94,13 +95,14 @@ const ListElement: FC<{ title: string; text: string }> = ({ title, text }) => {
 function HeroElement() {
   return (
     <>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 items-start">
         <h1 className="text-light-blue font-bold text-4xl">Découvrez nous !</h1>
         <p className="w-1/2 text-white-color">
           Explorez l'histoire fascinante et rencontrez l'équipe talentueuse de{" "}
           <span className="text-light-red">LeCodePartagé</span> pour approfondir
           votre compréhension de notre univers unique.
         </p>
+        <LinkedinButton />
       </div>
     </>
   );

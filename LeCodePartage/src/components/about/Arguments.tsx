@@ -10,7 +10,7 @@ type ArgumentsType = {
 };
 
 const Arguments = () => {
-  const size = "w-12";
+  const size = "w-8";
 
   // eslint-disable-next-line no-shadow-restricted-names
   const elements: ArgumentsType[] = [

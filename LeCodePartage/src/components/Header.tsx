@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 
 function Header() {
   const route = useLocation();
@@ -17,18 +17,32 @@ function Header() {
         <nav>
           <ul className="flex flex-row gap-8 items-center">
             <li className="text-white-color cursor-pointer headerNavLink relative transition hover:scale-110 ">
-              <Link to="/">Blog</Link>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? "headerNavLinkIsActive" : ""
+                }
+              >
+                Blog
+              </NavLink>
             </li>
             <li className="text-white-color cursor-pointer headerNavLink relative transition hover:scale-110 ">
-              <Link to="/a-propos">A propos </Link>
+              <NavLink
+                to="/a-propos"
+                className={({ isActive }) =>
+                  isActive ? "headerNavLinkIsActive" : ""
+                }
+              >
+                A propos{" "}
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 to="/contacte"
                 className="bg-dark-red px-small py-reallySmall text-white-color rounded-3xl cursor-pointer"
               >
                 Nous contacter
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </nav>
