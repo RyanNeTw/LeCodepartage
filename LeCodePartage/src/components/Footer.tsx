@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
+import LinkedIn from "../assets/Linkedin";
 
 function Footer() {
   return (
     <>
-      <footer className="bg-dark-blue px-page flex flex-col gap-24 pt-big pb-small min-h-screen">
+      <footer className="bg-dark-blue px-page flex flex-col justify-between py-medium min-h-screen">
         <section className="flex flex-row justify-between items-center">
           <div className="flex flex-row gap-2 items-center">
             <img
@@ -39,6 +40,16 @@ function Footer() {
                 Votre guide sur l’<span className="text-light-blue">Open</span>{" "}
                 Source <span className="text-light-red">Francais</span>{" "}
               </h3>
+              <h4 className="text-white-color flex flex-row gap-2 items-center">
+                Visitez notre{" "}
+                <a
+                  href="https://www.linkedin.com/in/le-code-partage-3506492a2/"
+                  target="_blank"
+                  className="text-light-blue underline"
+                >
+                  LinkedIn
+                </a>
+              </h4>
             </div>
             <div className="flex flex-col gap-4">
               <h2 className="text-light-red font-bold text-2xl">A propos :</h2>
@@ -86,7 +97,7 @@ function Footer() {
             </div>
           </div>
           <img
-            src={`${window.location.origin}/images/peopleApprouving.png`}
+            src={`${window.location.origin}/images/peopleApprouving.svg`}
             alt="People approuving"
           />
         </section>

@@ -15,7 +15,7 @@ const Hero: React.FC<{ image?: string; reactElement: ReactElement }> = ({
 
         {image ? <img src={`./images/${image}`} className="pr-16" /> : null}
         <img
-          src="./images/banner.png"
+          src="./images/banner.svg"
           className="absolute -z-50 top-2/4 right-1/4"
         />
       </div>

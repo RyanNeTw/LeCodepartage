@@ -1,4 +1,3 @@
-import Arrow from "../../assets/Arrow";
 import ArticleCard from "../../components/ArticleCard";
 import Hero from "../../components/Hero";
 import HeroWithList from "../../components/HeroWithList";
@@ -6,7 +5,7 @@ import HeroWithList from "../../components/HeroWithList";
 function MainPage() {
   return (
     <>
-      <Hero image="lightInSpace.png" reactElement={<HeroMainPage />} />
+      <Hero image="lightInSpace.svg" reactElement={<HeroMainPage />} />
       <div className="w-full px-page py-medium bg-white-color">
         <ArticleCard isBig={true} title={"Nos articles à la une :"} />
         <ArticleCard title={"Nos articles { } :"} />
@@ -22,7 +21,7 @@ function MainPage() {
 const HeroMainPage = () => {
   return (
     <>
-      <div className="flex flex-col gap-2 items-start">
+      <div className="flex flex-col items-start">
         <h1 className="text-white-color font-bold text-4xl">
           Bienvenue sur <span className="text-light-blue">LeCodePartagé</span>
         </h1>
@@ -30,7 +29,7 @@ const HeroMainPage = () => {
           Votre Guide de l'<span className="text-light-blue">Open Source</span>{" "}
           à la <span className="text-light-red">Française</span>
         </h3>
-        <div className="flex flex-row gap-4">
+        <div className="flex flex-row gap-4 pt-8">
           <a
             href="#firstArticle"
             className="px-small py-reallySmall bg-dark-red text-white-color rounded-3xl hover:bg-light-red"

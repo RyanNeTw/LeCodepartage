@@ -5,7 +5,7 @@ function Error404() {
     <>
       <div className="flex flex-col gap-2 justify-center items-center min-h-screen">
         <img
-          src={`${window.location.origin}/images/error404.png`}
+          src={`${window.location.origin}/images/error404.svg`}
           alt="Robot"
         />
         <h3 className="font-bold text-lg">

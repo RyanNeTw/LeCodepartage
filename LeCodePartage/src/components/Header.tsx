@@ -39,7 +39,7 @@ function Header() {
             <li>
               <NavLink
                 to="/contacte"
-                className="bg-dark-red px-small py-reallySmall text-white-color rounded-3xl cursor-pointer"
+                className="bg-dark-red px-small py-reallySmall text-white-color rounded-3xl cursor-pointer hover:bg-light-red"
               >
                 Nous contacter
               </NavLink>

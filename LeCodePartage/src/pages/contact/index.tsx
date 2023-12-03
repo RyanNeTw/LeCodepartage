@@ -32,7 +32,7 @@ const ContactPage = () => {
               className="border border-dark-blue w-1/4 cursor-pointer px-small py-midSmall rounded-3xl text-dark-blue self-end hover:bg-dark-blue hover:text-white-color"
             />
           </div>
-          <img src="./images/MailIllustration.png" alt="" />
+          <img src="./images/MailIllustration.svg" alt="" />
         </div>
       </div>
     </>
