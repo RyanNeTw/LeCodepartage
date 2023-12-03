@@ -31,7 +31,7 @@ function HeroStats() {
               la technologie, et nous sommes ici pour faciliter cela.
             </p>
             <AuthorCard
-              image="computeWithGuy.png"
+              image="computeWithGuy.svg"
               name="Ryan Ez Zerqti"
               role="CTO"
             />

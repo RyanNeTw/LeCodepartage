@@ -44,7 +44,7 @@ function AboutPage() {
 
   return (
     <>
-      <Hero image="computeWithGuy.png" reactElement={<HeroElement />} />
+      <Hero image="computeWithGuy.svg" reactElement={<HeroElement />} />
       <div className="flex flex-col gap-12 py-medium">
         <div className="px-page flex flex-col gap-12">
           <Testimonial

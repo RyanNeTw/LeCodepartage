@@ -40,7 +40,7 @@ const HeroWithList: FC<{ events?: EventType[] }> = ({ events }) => {
                 ))}
           </ul>
         </div>
-        <img src="./images/calender.png" alt="calender" />
+        <img src="./images/calender.svg" alt="calender" />
       </section>
     </>
   );
