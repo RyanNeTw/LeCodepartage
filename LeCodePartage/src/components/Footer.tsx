@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import LinkedIn from "../assets/Linkedin";
+import { LinkedinButton } from "../pages/main";
 
 function Footer() {
   return (
@@ -102,12 +102,19 @@ function Footer() {
           />
         </section>
 
-        <Link to="/" className="self-center">
-          <img
-            src={`${window.location.origin}/images/simpleLogo.png`}
-            className="w-16"
-          />
-        </Link>
+        <div className="flex flex-row justify-between">
+          <div className="flex flex-row gap-2 items-center">
+            <img
+              src={`${window.location.origin}/images/simpleLogo.png`}
+              alt="LeCodePartagé's logo"
+              className="w-8"
+            />
+            <h4 className="text-white-color">
+              @2023 LeCodePartagé - Fait avec ❤️ en France
+            </h4>
+          </div>
+          <LinkedinButton />
+        </div>
       </footer>
     </>
   );

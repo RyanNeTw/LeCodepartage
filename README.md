@@ -2,7 +2,7 @@
 
 React Js - Tailwind - TypeScript - Strapie
 
-### To install teh project
+### To install the project
 
 - git clone `git@github.com:RyanNeTw/LeCodepartage.git``
 - `pnpm i`
@@ -14,5 +14,3 @@ React Js - Tailwind - TypeScript - Strapie
 - Prettier
 
 #### To use prettier : `npx prettier . --write`
-
-# LeCodepartage
