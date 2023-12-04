@@ -13,10 +13,15 @@ const Hero: React.FC<{ image?: string; reactElement: ReactElement }> = ({
       >
         {reactElement}
 
-        {image ? <img src={`./images/${image}`} className="pr-16" /> : null}
+        {image ? (
+          <img
+            src={`${window.location.origin}/images/${image}`}
+            className="pr-16"
+          />
+        ) : null}
         <img
-          src="./images/banner.svg"
-          className="absolute -z-50 top-2/4 right-1/4"
+          src={`${window.location.origin}/images/banner.svg`}
+          className={`${image ? "top-2/4" : ""} absolute -z-50 right-1/4`}
         />
       </div>
     </>
