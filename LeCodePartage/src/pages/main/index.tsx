@@ -6,7 +6,7 @@ function MainPage() {
   return (
     <>
       <Hero image="lightInSpace.svg" reactElement={<HeroMainPage />} />
-      <div className="w-full px-page py-medium bg-white-color">
+      <div className="w-full px-page py-medium">
         <ArticleCard isBig={true} title={"Nos articles à la une :"} />
         <ArticleCard title={"Nos articles { } :"} />
       </div>

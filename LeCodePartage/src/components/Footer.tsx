@@ -40,7 +40,7 @@ function Footer() {
                 Votre guide sur l’<span className="text-light-blue">Open</span>{" "}
                 Source <span className="text-light-red">Francais</span>{" "}
               </h3>
-              <h4 className="text-white-color flex flex-row gap-2 items-center">
+              <h4 className="text-white-color flex flex-row gap-1 items-center">
                 Visitez notre{" "}
                 <a
                   href="https://www.linkedin.com/in/le-code-partage-3506492a2/"
