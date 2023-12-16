@@ -40,17 +40,18 @@ const AuthorCard: FC<{
         }`}
       >
         <Link
-          to={`/auteur/${name?.replace(/\s/g, "-")}`}
+          to={{ pathname: `/auteur/${name?.replace(/\s/g, "-")}` }}
+          state={{ name: name, role: role, image: image }}
           className="relative z-10 authorCard"
         >
           <div
-            className="relative w-16 h-16 rounded-full bg-center bg-no-repeat bg-cover bg-white-color"
+            className="relative w-16 h-16 rounded-full bg-center bg-no-repeat bg-cover bg-white-color shadow-sm"
             style={{ backgroundImage: `url(${imageUrl})` }}
           ></div>
         </Link>
         <div className={`flex flex-col ${reactComponent ? "mt-2" : null}`}>
           <div className="flex flex-row gap-4 relative items-center">
-            <div className={`flex ${isRow ? "flex-row gap-2" : "flex-col"}`}>
+            <div className={`flex ${isRow ? "flex-row gap-1" : "flex-col"}`}>
               <div className="font-bold text-light-blue">{name}</div>
               <div
                 className={`${

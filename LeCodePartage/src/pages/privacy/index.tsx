@@ -1,3 +1,4 @@
+import Breadcrumb from "../../components/breadCrumb";
 import Title from "../../components/Title";
 import { LilTitle, Paragraph } from "../cgu";
 
@@ -70,6 +71,7 @@ const Privacy = () => {
         <Title title="10 – Mise à jour de la politique de protection des données" />
         <Paragraph paragraph="Notre politique de confidentialité est susceptible d’être modifiée ou aménagée à tout moment. En cas de modification, la nouvelle politique de confidentialité sera notifiée au moment de la connexion à l’application." />
       </div>
+      <Breadcrumb />
     </>
   );
 };

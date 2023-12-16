@@ -1,3 +1,4 @@
+import Breadcrumb from "../../components/breadCrumb";
 import Title from "../../components/Title";
 
 const ContactPage = () => {
@@ -37,6 +38,7 @@ const ContactPage = () => {
           <img src="./images/MailIllustration.svg" alt="" />
         </div>
       </div>
+      <Breadcrumb />
     </>
   );
 };
