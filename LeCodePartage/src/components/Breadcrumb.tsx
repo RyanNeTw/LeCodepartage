@@ -3,7 +3,6 @@ import Arrow from "../assets/Arrow";
 
 const Breadcrumb = () => {
   const path = window.location.href.split("/");
-  console.log(window.location.href);
 
   return (
     <>
