@@ -5,7 +5,7 @@ const members: MembersType[] = [
     fullName: "Ryan Ez Zerqti",
     job: "CEO",
     image: "ryan.png",
-    desc: "Responsable éditorial et rédacteur en chef LeCodePratagé. J’anime l’équipe rédactionnelle du site et pilote la ligne éditoriale.",
+    desc: "Responsable éditorial et rédacteur en chef. J’anime l’équipe rédactionnelle du site et pilote la ligne éditoriale.",
     github: "https://github.com/RyanNeTw",
     linkedin: "https://www.linkedin.com/in/ryan-ez-zerqti-964396236/",
   },
@@ -26,7 +26,7 @@ const members: MembersType[] = [
     linkedin: "https://www.linkedin.com/in/romain-laurent-118281231/",
   },
   {
-    fullName: "Rémi LEMOUST DE LAFOSSE",
+    fullName: "Rémi Lemoust De Lafosse",
     job: "DG",
     image: "remi.png",
     desc: "Je dirige l'entreprise avec une vision innovante, en pilotant la croissance et en renforçant notre présence dans l'open source.",

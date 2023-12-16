@@ -2,6 +2,7 @@ import { FC } from "react";
 import Arguments from "../../components/about/Arguments";
 import HeroStats from "../../components/about/HeroStats";
 import MembersList from "../../components/about/MembersList";
+import Breadcrumb from "../../components/breadCrumb";
 import Hero from "../../components/Hero";
 import Testimonial from "../../components/Testimonial";
 import Title from "../../components/Title";
@@ -75,6 +76,7 @@ function AboutPage() {
           <MembersList />
         </div>
       </div>
+      <Breadcrumb />
     </>
   );
 }

@@ -1,4 +1,5 @@
 import { FC } from "react";
+import Breadcrumb from "../../components/breadCrumb";
 import Title from "../../components/Title";
 
 const Cgu = () => {
@@ -99,6 +100,7 @@ const Cgu = () => {
         <Title title="Article 12 – Loi applicable – Tribunal compétent" />
         <Paragraph paragraph="Les présentes conditions, les annexes et tout document pris en application sont soumis à la loi française. Tout litige dans l’interprétation et l’exécution des présentes sera porté devant les juridictions de droit commun s’agissant d’un Utilisateur non professionnel et devant les tribunaux de RENNES, nonobstant pluralité de défendeurs ou appel en garantie, s’agissant des Utilisateurs professionnels." />
       </div>
+      <Breadcrumb />
     </>
   );
 };

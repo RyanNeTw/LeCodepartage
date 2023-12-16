@@ -1,3 +1,4 @@
+import Breadcrumb from "../../components/breadCrumb";
 import Title from "../../components/Title";
 
 type WebmasterType = {
@@ -46,6 +47,7 @@ const LegalNotice = () => {
           </p>
         </div>
       </div>
+      <Breadcrumb />
     </>
   );
 };

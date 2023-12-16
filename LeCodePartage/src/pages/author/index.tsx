@@ -2,24 +2,22 @@ import AuthorCard from "../../components/AuthorCard";
 import Hero from "../../components/Hero";
 import { FC } from "react";
 import ArticleCard from "../../components/ArticleCard";
+import { useLocation } from "react-router-dom";
+import Breadcrumb from "../../components/breadCrumb";
 
 const AuthorPage = () => {
-  const auteur = {
-    name: "Ryan Ez Zerqti",
-    image: "ryan.png",
-    role: "CTO",
-    articles: 19,
-  };
+  const location = useLocation();
+  const author = location.state;
 
   return (
     <>
       <Hero
         reactElement={
           <HeroAuthor
-            name={auteur.name}
-            role={auteur.role}
-            image={auteur.image}
-            articles={auteur.articles}
+            name={author.name}
+            role={author.role}
+            image={author.image}
+            articles={0}
           />
         }
       />
@@ -28,6 +26,7 @@ const AuthorPage = () => {
         <ArticleCard title="Ses articles { } :" />
         <ArticleCard title="Au cas où vous l’auriez manqué :" twice={true} />
       </div>
+      <Breadcrumb />
     </>
   );
 };
