@@ -30,11 +30,7 @@ function HeroStats() {
               connaissances et la collaboration sont les clés pour faire avancer
               la technologie, et nous sommes ici pour faciliter cela.
             </p>
-            <AuthorCard
-              image="computeWithGuy.svg"
-              name="Ryan Ez Zerqti"
-              role="CTO"
-            />
+            <AuthorCard image="ryan.png" name="Ryan Ez Zerqti" role="CEO" />
           </div>
           <img src="./images/arrowRight.png" className="w-16 self-end" />
         </div>

@@ -2,13 +2,21 @@ import { FC, ReactElement } from "react";
 import { Link } from "react-router-dom";
 
 const AuthorCard: FC<{
-  image?: string;
-  name?: string;
-  role?: string;
+  image?: string | null;
+  name?: string | null;
+  role?: string | null;
   isRow?: boolean;
   reactComponent?: ReactElement;
-}> = ({ image, name, role, isRow = false, reactComponent }) => {
-  const imageUrl = `./images/${image}`;
+  isBackground?: boolean;
+}> = ({
+  image,
+  name,
+  role,
+  isRow = false,
+  reactComponent,
+  isBackground = true,
+}) => {
+  const imageUrl = `${window.location.origin}/images/members/${image}`;
 
   if (!image) {
     return (
@@ -44,7 +52,11 @@ const AuthorCard: FC<{
           <div className="flex flex-row gap-4 relative items-center">
             <div className={`flex ${isRow ? "flex-row gap-2" : "flex-col"}`}>
               <div className="font-bold text-light-blue">{name}</div>
-              <div className="text-white-color">
+              <div
+                className={`${
+                  isBackground ? "text-white-color" : "text-black-color"
+                }`}
+              >
                 {isRow ? " - " : null} {role}
               </div>
             </div>

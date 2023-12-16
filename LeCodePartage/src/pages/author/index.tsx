@@ -6,7 +6,7 @@ import ArticleCard from "../../components/ArticleCard";
 const AuthorPage = () => {
   const auteur = {
     name: "Ryan Ez Zerqti",
-    image: "error404.svg",
+    image: "ryan.png",
     role: "CTO",
     articles: 19,
   };

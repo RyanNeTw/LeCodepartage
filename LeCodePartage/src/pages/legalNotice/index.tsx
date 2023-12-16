@@ -9,9 +9,9 @@ type WebmasterType = {
 
 const LegalNotice = () => {
   const webmaster: WebmasterType = {
-    webmaster: "Microsoft Azure",
-    address: "37 Quai du Président Roosevelt",
-    city: "92130 Issy-les-Moulineaux",
+    webmaster: "Digital Ocean",
+    address: "47 Bd de Pesaro",
+    city: "92000 Nanterre",
     tel: "Tél. : 09 70 01 90 90",
   };
 
