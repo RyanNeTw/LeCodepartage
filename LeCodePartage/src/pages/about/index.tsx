@@ -95,9 +95,9 @@ const ListElement: FC<{ title: string; text: string }> = ({ title, text }) => {
 function HeroElement() {
   return (
     <>
-      <div className="flex flex-col gap-2 items-start">
+      <div className="flex flex-col gap-4 items-start">
         <h1 className="text-light-blue font-bold text-4xl">Découvrez nous !</h1>
-        <p className="w-1/2 text-white-color">
+        <p className="w-2/3 text-white-color">
           Explorez l'histoire fascinante et rencontrez l'équipe talentueuse de{" "}
           <span className="text-light-red">LeCodePartagé</span> pour approfondir
           votre compréhension de notre univers unique.

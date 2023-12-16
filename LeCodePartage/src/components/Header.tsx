@@ -23,11 +23,11 @@ function Header() {
     <>
       <header
         id="header"
-        className="bg-dark-blue flex flex-row justify-between items-center px-page py-small"
+        className="bg-dark-blue flex flex-row justify-between items-center px-page md:px-mobile py-small"
       >
         <Link to="/">
           <img
-            src={`${window.location.origin}/images/simpleLogo.png`}
+            src={`${window.location.origin}/images/logoWithNameAside.svg`}
             alt="LeCodePartagé's logo with text aside"
             className="h-12"
           />
