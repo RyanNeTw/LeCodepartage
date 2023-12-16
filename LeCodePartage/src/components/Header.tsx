@@ -23,7 +23,7 @@ function Header() {
     <>
       <header
         id="header"
-        className="bg-dark-blue flex flex-row justify-between items-center px-page md:px-mobile py-small"
+        className="bg-dark-blue flex flex-row justify-between items-center px-page  py-small"
       >
         <Link to="/">
           <img
