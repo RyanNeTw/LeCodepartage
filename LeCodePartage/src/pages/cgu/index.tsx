@@ -106,19 +106,19 @@ const Cgu = () => {
 };
 
 export const Paragraph: FC<{ paragraph: string }> = ({ paragraph }) => {
+  return <p>{paragraph}</p>;
+};
+
+export const Link: FC<{ text: string }> = ({ text }) => {
   return (
-    <>
-      <p className="pl-medium">{paragraph}</p>
-    </>
+    <a href={text} className="text-light-blue hover:underline">
+      {text}
+    </a>
   );
 };
 
 export const LilTitle: FC<{ title: string }> = ({ title }) => {
-  return (
-    <>
-      <h3 className="text-lg text-light-blue pl-medium">{title} </h3>
-    </>
-  );
+  return <h3 className="text-lg text-light-blue">{title} </h3>;
 };
 
 export default Cgu;

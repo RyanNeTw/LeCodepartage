@@ -14,6 +14,18 @@ const Breadcrumb = () => {
         <h3 className="text-white-color">
           {path[3].replace("-", " ").replace("%C3%A9", "é").toUpperCase()}
         </h3>
+        {path[4] ? (
+          <>
+            {" "}
+            <Arrow size="w-4 rotate-180" />
+            <h3 className="text-white-color">
+              {path[4]
+                .replaceAll("-", " ")
+                .replaceAll("%C3%A9", "é")
+                .toUpperCase()}
+            </h3>
+          </>
+        ) : null}
       </div>
     </>
   );

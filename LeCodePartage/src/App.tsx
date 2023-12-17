@@ -3,6 +3,7 @@ import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import AboutPage from "./pages/about";
+import ArticlePage from "./pages/article";
 import AuthorPage from "./pages/author";
 import Cgu from "./pages/cgu";
 import ContactPage from "./pages/contact";
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="/a-propos" element={<AboutPage />} />
           <Route path="/auteur/:name" element={<AuthorPage />} />
+          <Route path="/article/:name" element={<ArticlePage />} />
           <Route path="/contacte" element={<ContactPage />} />
           <Route path="/mentions-légales" element={<LegalNotice />} />
           <Route path="/confidentialité" element={<Privacy />} />

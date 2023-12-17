@@ -8,6 +8,7 @@ const AuthorCard: FC<{
   isRow?: boolean;
   reactComponent?: ReactElement;
   isBackground?: boolean;
+  isFetch?: boolean;
 }> = ({
   image,
   name,
@@ -15,8 +16,11 @@ const AuthorCard: FC<{
   isRow = false,
   reactComponent,
   isBackground = true,
+  isFetch = true,
 }) => {
-  const imageUrl = `${window.location.origin}/images/members/${image}`;
+  const imageUrl = isFetch
+    ? `http://localhost:1337${image}`
+    : `${window.location.origin}/images/members/${image}`;
 
   if (!image) {
     return (

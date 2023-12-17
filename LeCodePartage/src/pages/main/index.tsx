@@ -1,18 +1,35 @@
+import { useEffect, useState } from "react";
 import ArticleCard from "../../components/ArticleCard";
 import Hero from "../../components/Hero";
 import HeroWithList from "../../components/HeroWithList";
+import { getArticles } from "../../functions/getData";
+import { ArticlesType } from "../../types";
 
 function MainPage() {
+  const [articles, setArticles] = useState<ArticlesType[]>([]);
+
+  useEffect(() => {
+    getArticles().then((data) => setArticles(data.data));
+  }, []);
+
   return (
     <>
       <Hero image="lightInSpace.svg" reactElement={<HeroMainPage />} />
       <div className="w-full px-page py-medium">
-        <ArticleCard isBig={true} title={"Nos articles à la une :"} />
-        <ArticleCard title={"Nos articles { } :"} />
+        <ArticleCard
+          isBig={true}
+          title={"Notre article à la une :"}
+          articles={articles}
+        />
+        <ArticleCard title={"Nos articles { } :"} articles={articles} />
       </div>
       <HeroWithList />
       <div className="w-full px-page py-medium">
-        <ArticleCard twice={true} title={"Au cas où vous l’auriez manqué :"} />
+        <ArticleCard
+          twice={true}
+          title={"Au cas où vous l’auriez manqué :"}
+          articles={articles}
+        />
       </div>
     </>
   );
