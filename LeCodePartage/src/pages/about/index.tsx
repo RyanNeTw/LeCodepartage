@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import Arguments from "../../components/about/Arguments";
 import HeroStats from "../../components/about/HeroStats";
 import MembersList from "../../components/about/MembersList";
@@ -6,6 +6,8 @@ import Breadcrumb from "../../components/breadCrumb";
 import Hero from "../../components/Hero";
 import Testimonial from "../../components/Testimonial";
 import Title from "../../components/Title";
+import getMembers from "../../functions/getData";
+import { MembersType } from "../../types";
 import { LinkedinButton } from "../main";
 
 type WhyUsType = {
@@ -43,6 +45,12 @@ function AboutPage() {
     },
   ];
 
+  const [members, setMembers] = useState<MembersType[]>([]);
+
+  useEffect(() => {
+    getMembers().then((data) => setMembers(data.data));
+  }, []);
+
   return (
     <>
       <Hero image="computeWithGuy.svg" reactElement={<HeroElement />} />
@@ -73,7 +81,7 @@ function AboutPage() {
             </ul>
           </div>
           <Arguments />
-          <MembersList />
+          <MembersList members={members} />
         </div>
       </div>
       <Breadcrumb />
