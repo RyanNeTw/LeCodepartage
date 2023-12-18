@@ -1,3 +1,6 @@
+import { useEffect, useState } from "react";
+import { getMemberByField } from "../../functions/getData";
+import { MembersType } from "../../types";
 import AuthorCard from "../AuthorCard";
 
 function HeroStats() {
@@ -6,6 +9,13 @@ function HeroStats() {
     { title: "004", text: "Postes publiés" },
     { title: "004", text: "Postes publiés" },
   ];
+
+  const [author, setAuthor] = useState<MembersType | null>(null);
+  useEffect(() => {
+    getMemberByField("slug", "ryan-ez-zerqti").then((data) =>
+      setAuthor(data.data[0]),
+    );
+  }, []);
 
   return (
     <>
@@ -30,12 +40,7 @@ function HeroStats() {
               connaissances et la collaboration sont les clés pour faire avancer
               la technologie, et nous sommes ici pour faciliter cela.
             </p>
-            <AuthorCard
-              image="ryan.png"
-              name="Ryan Ez Zerqti"
-              role="CEO"
-              isFetch={false}
-            />
+            <AuthorCard author={author} />
           </div>
           <img src="./images/arrowRight.png" className="w-16 self-end" />
         </div>

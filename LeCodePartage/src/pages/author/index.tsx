@@ -1,30 +1,34 @@
 import AuthorCard from "../../components/AuthorCard";
 import Hero from "../../components/Hero";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import ArticleCard from "../../components/ArticleCard";
-import { useLocation } from "react-router-dom";
 import Breadcrumb from "../../components/breadCrumb";
+import { MembersType } from "../../types";
+import { getMemberByField } from "../../functions/getData";
 
 const AuthorPage = () => {
-  const location = useLocation();
-  const author = location.state;
+  const [author, setAuthor] = useState<MembersType | null>(null);
+  const path = window.location.href.split("/");
+  useEffect(() => {
+    getMemberByField("slug", path[4]).then((data) => setAuthor(data.data[0]));
+  }, []);
 
+  const articles = author?.attributes?.articles?.data ?? null;
   return (
     <>
-      <Hero
-        reactElement={
-          <HeroAuthor
-            name={author.name}
-            role={author.role}
-            image={author.image}
-            articles={0}
-          />
-        }
-      />
+      <Hero reactElement={<HeroAuthor author={author} />} />
       <div className="px-page py-medium">
-        <ArticleCard title="Dernier article publié :" isBig={true} />
-        <ArticleCard title="Ses articles { } :" />
-        <ArticleCard title="Au cas où vous l’auriez manqué :" twice={true} />
+        <ArticleCard
+          title="Dernier article publié :"
+          isBig={true}
+          articles={articles}
+        />
+        <ArticleCard title="Ses articles { } :" articles={articles} />
+        <ArticleCard
+          title="Au cas où vous l’auriez manqué :"
+          twice={true}
+          articles={articles}
+        />
       </div>
       <Breadcrumb />
     </>
@@ -32,20 +36,17 @@ const AuthorPage = () => {
 };
 
 const HeroAuthor: FC<{
-  name: string;
-  role: string;
-  image: string;
-  articles: number;
-}> = ({ name, role, image, articles }) => {
+  author: MembersType | null;
+}> = ({ author }) => {
   return (
     <>
       <AuthorCard
-        image={image}
-        name={name}
-        role={role}
+        author={author}
         isRow={true}
         reactComponent={
-          <h4 className="text-white-color">Articles: {articles}</h4>
+          <h4 className="text-white-color">
+            Articles: {author?.attributes?.articles?.data?.length}
+          </h4>
         }
       />
     </>

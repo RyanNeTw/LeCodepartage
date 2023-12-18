@@ -64,6 +64,7 @@ export type PurpleAttributes = {
   fullName: string;
   job: string;
   linkedin: string;
+  slug: string;
   GitHub: string;
   picture: Picture;
   articles: Articles;
@@ -162,4 +163,18 @@ export type Pagination = {
   pageSize: number;
   pageCount: number;
   total: number;
+};
+
+export type EventsType = {
+  id: number;
+  attributes: Attributes;
+};
+
+export type Attributes = {
+  eventName: string;
+  date: string;
+  eventLink: string;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date;
 };

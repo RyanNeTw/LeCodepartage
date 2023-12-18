@@ -1,8 +1,8 @@
-import { FC, ReactElement } from "react";
-import { useLocation } from "react-router-dom";
+import { FC, ReactElement, useEffect, useState } from "react";
 import ArticleCard from "../../components/ArticleCard";
 import Breadcrumb from "../../components/breadCrumb";
 import Title from "../../components/Title";
+import { getArticlesByField } from "../../functions/getData";
 import {
   ArticlesType,
   TypeText,
@@ -12,16 +12,19 @@ import {
 } from "../../types";
 
 const ArticlePage = () => {
-  const location = useLocation();
-  const article = location.state as ArticlesType;
-  console.log({ article });
+  const [article, setArticle] = useState<ArticlesType[]>([]);
+  const path = window.location.href.split("/");
+
+  useEffect(() => {
+    getArticlesByField("slug", path[4]).then((data) => setArticle(data.data));
+  }, []);
 
   return (
     <>
       <div className="px-page py-medium flex flex-col gap-12">
-        <ArticleCard articles={[article]} isArticle={true} isBig={true} />
+        <ArticleCard articles={article} isArticle={true} isBig={true} />
         <ul>
-          {article?.attributes?.content?.map((content, index) => (
+          {article[0]?.attributes?.content?.map((content, index) => (
             <li key={index} className="pb-4">
               <ArticleContent content={content} />
             </li>

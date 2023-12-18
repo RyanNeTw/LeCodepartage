@@ -7,13 +7,13 @@ import { Link } from "react-router-dom";
 import getDate from "../functions/getDate";
 
 const ArticleCard: FC<{
-  articles: ArticlesType[];
+  articles: ArticlesType[] | null;
   isBig?: boolean;
   title?: string;
   twice?: boolean;
   isArticle?: boolean;
 }> = ({ articles, isBig = false, title, twice = false, isArticle = false }) => {
-  const elements: ArticlesType[] = isBig
+  const elements: ArticlesType[] | null = isBig
     ? articles?.slice(articles?.length - 1)
     : twice
       ? articles?.slice(articles?.length - 2)
@@ -99,15 +99,7 @@ const Article: FC<{
           </div>
           <div className="flex flex-row justify-between w-full items-end">
             {!isArticle ? (
-              <AuthorCard
-                name={member?.attributes?.fullName}
-                role={member?.attributes?.job}
-                image={
-                  member?.attributes?.picture?.data?.attributes?.formats
-                    ?.thumbnail?.url
-                }
-                isBackground={false}
-              />
+              <AuthorCard author={member} isBackground={false} />
             ) : null}
             <div className="flex flex-col">
               <h4 className="">Le {getDate(article?.attributes?.date)}</h4>

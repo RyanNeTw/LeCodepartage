@@ -1,18 +1,23 @@
+const months: string[] = [
+  "Janvier",
+  "Février",
+  "Mars",
+  "Avril",
+  "Mais",
+  "Juin",
+  "Juillet",
+  "Août",
+  "Septembre",
+  "Octobre",
+  "Novembre",
+  "Décembre",
+];
+
+export const getMouth = (month: string): string => {
+  return months[parseInt(month) - 1];
+};
+
 const getDate = (date: string): string => {
-  const months: string[] = [
-    "Janvier",
-    "Février",
-    "Mars",
-    "Avril",
-    "Mais",
-    "Juin",
-    "Juillet",
-    "Août",
-    "Septembre",
-    "Octobre",
-    "Novembre",
-    "Décembre",
-  ];
   const longDate = date.split("T")[0];
 
   const newDate =
