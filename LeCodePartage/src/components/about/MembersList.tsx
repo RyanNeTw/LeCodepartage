@@ -14,12 +14,7 @@ const MembersList: FC<{ members: MembersType[] }> = ({ members }) => {
           {members?.map((member, index) => (
             <li key={index} className="w-5/12">
               <AuthorCard
-                name={member.attributes?.fullName}
-                role={member.attributes?.job}
-                image={
-                  member.attributes?.picture?.data?.attributes?.formats
-                    ?.thumbnail?.url
-                }
+                author={member}
                 isBackground={false}
                 isRow={true}
                 reactComponent={<Description member={member} />}

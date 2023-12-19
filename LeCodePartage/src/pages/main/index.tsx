@@ -2,14 +2,16 @@ import { useEffect, useState } from "react";
 import ArticleCard from "../../components/ArticleCard";
 import Hero from "../../components/Hero";
 import HeroWithList from "../../components/HeroWithList";
-import { getArticles } from "../../functions/getData";
-import { ArticlesType } from "../../types";
+import { getArticles, getEvents } from "../../functions/getData";
+import { ArticlesType, EventsType } from "../../types";
 
 function MainPage() {
   const [articles, setArticles] = useState<ArticlesType[]>([]);
+  const [events, setEvents] = useState<EventsType[]>([]);
 
   useEffect(() => {
     getArticles().then((data) => setArticles(data.data));
+    getEvents().then((data) => setEvents(data.data));
   }, []);
 
   return (
@@ -23,7 +25,7 @@ function MainPage() {
         />
         <ArticleCard title={"Nos articles { } :"} articles={articles} />
       </div>
-      <HeroWithList />
+      <HeroWithList events={events} />
       <div className="w-full px-page py-medium">
         <ArticleCard
           twice={true}

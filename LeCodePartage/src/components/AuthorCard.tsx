@@ -1,28 +1,18 @@
 import { FC, ReactElement } from "react";
 import { Link } from "react-router-dom";
+import { MembersType } from "../types";
 
 const AuthorCard: FC<{
-  image?: string | null;
-  name?: string | null;
-  role?: string | null;
+  author?: MembersType | null;
   isRow?: boolean;
   reactComponent?: ReactElement;
   isBackground?: boolean;
   isFetch?: boolean;
-}> = ({
-  image,
-  name,
-  role,
-  isRow = false,
-  reactComponent,
-  isBackground = true,
-  isFetch = true,
-}) => {
-  const imageUrl = isFetch
-    ? `http://localhost:1337${image}`
-    : `${window.location.origin}/images/members/${image}`;
+}> = ({ author, isRow = false, reactComponent, isBackground = true }) => {
+  console.log({ author });
+  const imageUrl = `http://localhost:1337${author?.attributes?.picture?.data?.attributes?.url}`;
 
-  if (!image) {
+  if (!author?.attributes?.picture?.data?.attributes?.url) {
     return (
       <>
         <div className="flex flex-row gap-2 items-center">
@@ -44,8 +34,17 @@ const AuthorCard: FC<{
         }`}
       >
         <Link
-          to={{ pathname: `/auteur/${name?.replace(/\s/g, "-")}` }}
-          state={{ name: name, role: role, image: image }}
+          to={{
+            pathname: `/auteur/${author?.attributes?.slug?.replace(
+              /\s/g,
+              "-",
+            )}`,
+          }}
+          state={{
+            name: author?.attributes?.fullName,
+            role: author?.attributes?.job,
+            image: author?.attributes?.picture?.data?.attributes?.url,
+          }}
           className="relative z-10 authorCard"
         >
           <div
@@ -56,13 +55,15 @@ const AuthorCard: FC<{
         <div className={`flex flex-col ${reactComponent ? "mt-2" : null}`}>
           <div className="flex flex-row gap-4 relative items-center">
             <div className={`flex ${isRow ? "flex-row gap-1" : "flex-col"}`}>
-              <div className="font-bold text-light-blue">{name}</div>
+              <div className="font-bold text-light-blue">
+                {author?.attributes?.fullName}
+              </div>
               <div
                 className={`${
                   isBackground ? "text-white-color" : "text-black-color"
                 }`}
               >
-                {isRow ? " - " : null} {role}
+                {isRow ? " - " : null} {author?.attributes?.job}
               </div>
             </div>
           </div>
