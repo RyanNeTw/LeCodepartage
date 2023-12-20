@@ -5,7 +5,6 @@ import { EventsType } from "../types";
 const HeroWithList: FC<{ events: EventsType[] }> = ({ events }) => {
   const array: string[] = ["e", "e", "e", "e"];
 
-  console.log({ events });
   return (
     <>
       <section className="bg-dark-blue px-page flex flex-row justify-between py-12 relative">
@@ -18,14 +17,14 @@ const HeroWithList: FC<{ events: EventsType[] }> = ({ events }) => {
           <h2 className="text-white-color text-2xl">
             Les prochains événements :
           </h2>
-          <ul className="flex flex-wrap gap-4">
+          <ul className="flex flex-wrap gap-6">
             {events?.length > 0
               ? events?.map((event, index) => (
                   <a
                     key={index}
                     href={event?.attributes?.eventLink}
                     target="_blank"
-                    className="bg-dark-red rounded-lg w-5/12 px-small py-midSmall flex flex-row gap-4 items-center"
+                    className="bg-dark-red rounded-lg w-5/12 px-small py-midSmall flex flex-row gap-4 items-center hover:scale-105 transition"
                   >
                     <div className="bg-dark-blue px-small py-midSmall rounded-lg flex flex-col items-center">
                       <h4 className="font-bold text-white-color text-xl">

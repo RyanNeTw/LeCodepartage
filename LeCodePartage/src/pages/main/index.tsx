@@ -2,16 +2,24 @@ import { useEffect, useState } from "react";
 import ArticleCard from "../../components/ArticleCard";
 import Hero from "../../components/Hero";
 import HeroWithList from "../../components/HeroWithList";
-import { getArticles, getEvents } from "../../functions/getData";
+import {
+  getArticles,
+  getArticlesByField,
+  getEvents,
+} from "../../functions/getData";
 import { ArticlesType, EventsType } from "../../types";
 
 function MainPage() {
   const [articles, setArticles] = useState<ArticlesType[]>([]);
   const [events, setEvents] = useState<EventsType[]>([]);
+  const [articlesIsMissed, setArticlesIsMissed] = useState<ArticlesType[]>([]);
 
   useEffect(() => {
     getArticles().then((data) => setArticles(data.data));
     getEvents().then((data) => setEvents(data.data));
+    getArticlesByField("[isMissed]", "true").then((data) =>
+      setArticlesIsMissed(data?.data),
+    );
   }, []);
 
   return (
@@ -30,7 +38,7 @@ function MainPage() {
         <ArticleCard
           twice={true}
           title={"Au cas où vous l’auriez manqué :"}
-          articles={articles}
+          articles={articlesIsMissed}
         />
       </div>
     </>

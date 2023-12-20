@@ -12,7 +12,10 @@ const MembersList: FC<{ members: MembersType[] }> = ({ members }) => {
         <Title title="L’équipe de rédaction :" />
         <ul className="w-full flex flex-wrap pt-12 justify-between gap-8">
           {members?.map((member, index) => (
-            <li key={index} className="w-5/12">
+            <li
+              key={index}
+              className="w-5/12 hover:shadow-lg rounded-lg px-6 py-2"
+            >
               <AuthorCard
                 author={member}
                 isBackground={false}
@@ -35,14 +38,14 @@ const Description: FC<{ member: MembersType }> = ({ member }) => {
         <a
           href={member.attributes.linkedin}
           target="_blank"
-          className="hover:opacity-70 hover:scale-105"
+          className="hover:opacity-70 hover:scale-110"
         >
           <LinkedIn />
         </a>
         <a
           href={member.attributes.GitHub}
           target="_blank"
-          className="hover:opacity-70 hover:scale-105"
+          className="hover:opacity-70 hover:scale-110"
         >
           <Github />
         </a>

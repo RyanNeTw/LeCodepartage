@@ -9,7 +9,6 @@ const AuthorCard: FC<{
   isBackground?: boolean;
   isFetch?: boolean;
 }> = ({ author, isRow = false, reactComponent, isBackground = true }) => {
-  console.log({ author });
   const imageUrl = `http://localhost:1337${author?.attributes?.picture?.data?.attributes?.url}`;
 
   if (!author?.attributes?.picture?.data?.attributes?.url) {
