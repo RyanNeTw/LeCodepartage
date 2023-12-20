@@ -87,7 +87,7 @@ const Article: FC<{
           </h4>
         </div>
         <div
-          className={`px-small pb-small flex flex-col gap-4 w-full p-8 shadow hover:shadow-lg ${
+          className={`px-small pb-small flex flex-col gap-4 w-full p-8 hover:shadow ${
             isBig ? "rounded-r-lg" : "rounded-b-lg"
           }`}
         >

@@ -40,7 +40,7 @@ export const getArticlesByField = async (
   search: string,
 ): Promise<GetDataType<ArticlesType>> => {
   const response = await fetch(
-    `http://localhost:1337/api/articles?filters[${filter}]=${search}&populate=*`,
+    `http://localhost:1337/api/articles?filters${filter}=${search}&populate=*`,
   );
   return await response.json();
 };

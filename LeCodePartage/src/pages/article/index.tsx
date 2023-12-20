@@ -13,10 +13,16 @@ import {
 
 const ArticlePage = () => {
   const [article, setArticle] = useState<ArticlesType[]>([]);
+  const [articleIsMissed, setArticleIsMissed] = useState<ArticlesType[]>([]);
   const path = window.location.href.split("/");
 
   useEffect(() => {
-    getArticlesByField("slug", path[4]).then((data) => setArticle(data.data));
+    getArticlesByField("[slug]", path[4]).then((data) =>
+      setArticle(data?.data),
+    );
+    getArticlesByField("[isMissed]", "true").then((data) =>
+      setArticleIsMissed(data?.data),
+    );
   }, []);
 
   return (
@@ -31,7 +37,9 @@ const ArticlePage = () => {
           ))}
         </ul>
         <ArticleCard
-          articles={[]}
+          articles={articleIsMissed.filter(
+            (i) => i?.attributes?.slug != article[0]?.attributes?.slug,
+          )}
           twice={true}
           title={"Au cas où vous l’auriez manqué :"}
         />

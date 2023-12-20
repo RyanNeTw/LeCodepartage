@@ -71,7 +71,7 @@ export type PurpleAttributes = {
 };
 
 export type Articles = {
-  data: ArticlesDatum[];
+  data: ArticlesType[];
 };
 
 export type ArticlesDatum = {
