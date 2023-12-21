@@ -11,7 +11,7 @@ const AuthorCard: FC<{
 }> = ({ author, isRow = false, reactComponent, isBackground = true }) => {
   const imageUrl = `http://localhost:1337${author?.attributes?.picture?.data?.attributes?.url}`;
 
-  if (!author?.attributes?.picture?.data?.attributes?.url) {
+  if (!author?.id) {
     return (
       <>
         <div className="flex flex-row gap-2 items-center">
@@ -29,8 +29,8 @@ const AuthorCard: FC<{
     <>
       <div
         className={`flex flex-row gap-4 ${
-          reactComponent ? "items-start" : "items-center"
-        }`}
+          isRow ? "hover:shadow-lg rounded-lg px-6 py-2" : ""
+        } ${reactComponent ? "items-start" : "items-center"}`}
       >
         <Link
           to={{

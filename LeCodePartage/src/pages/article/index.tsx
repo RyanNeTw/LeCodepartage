@@ -1,5 +1,6 @@
 import { FC, ReactElement, useEffect, useState } from "react";
 import ArticleCard from "../../components/ArticleCard";
+import AuthorCard from "../../components/AuthorCard";
 import Breadcrumb from "../../components/breadCrumb";
 import Title from "../../components/Title";
 import { getArticlesByField } from "../../functions/getData";
@@ -14,6 +15,7 @@ import {
 const ArticlePage = () => {
   const [article, setArticle] = useState<ArticlesType[]>([]);
   const [articleIsMissed, setArticleIsMissed] = useState<ArticlesType[]>([]);
+
   const path = window.location.href.split("/");
 
   useEffect(() => {
@@ -27,15 +29,24 @@ const ArticlePage = () => {
 
   return (
     <>
-      <div className="px-page py-medium flex flex-col gap-12">
+      <div className="px-page py-medium flex flex-col gap-4">
         <ArticleCard articles={article} isArticle={true} isBig={true} />
         <ul>
           {article[0]?.attributes?.content?.map((content, index) => (
-            <li key={index} className="pb-4">
+            <li key={index} className="pb-2">
               <ArticleContent content={content} />
             </li>
           ))}
         </ul>
+        <div className="h-0.5 w-full bg-dark-red"></div>
+        <div className="flex justify-end">
+          <AuthorCard
+            author={article[0]?.attributes?.member?.data}
+            isBackground={false}
+            isRow={true}
+            reactComponent={<ShareLinks article={article} />}
+          />
+        </div>
         <ArticleCard
           articles={articleIsMissed.filter(
             (i) => i?.attributes?.slug != article[0]?.attributes?.slug,
@@ -45,6 +56,33 @@ const ArticlePage = () => {
         />
       </div>
       <Breadcrumb />
+    </>
+  );
+};
+
+const ShareLinks: FC<{ article: ArticlesType[] }> = ({
+  article,
+}): ReactElement => {
+  const shareText: string = `Je viens de lire cet article incroyable sur LeCodePartagé et je devais le partager ! Jetez un œil : ${article[0]?.attributes?.name}. #ÀLire #Inspiration`;
+  return (
+    <>
+      <div className="flex flex-row gap-1 ">
+        <p className="font-bold">Partager :</p>
+        <a
+          href={`https://www.linkedin.com/sharing/share-offsite/?url=${window.location.href}`}
+          target="_blank"
+          className="hover:underline"
+        >
+          Linkedin,
+        </a>
+        <a
+          href={`https://twitter.com/intent/tweet?text=${shareText}&url=${window.location.href}`}
+          target="_blank"
+          className="hover:underline"
+        >
+          X
+        </a>
+      </div>
     </>
   );
 };
