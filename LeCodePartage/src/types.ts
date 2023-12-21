@@ -46,6 +46,12 @@ export enum TypeText {
   LIST = "list-item",
 }
 
+export enum HeroStatsText {
+  MEMBERS = "Collaborateurs de l'entreprise",
+  ARTICLES = "Articles partagés",
+  EVENTS = "Événements partagés",
+}
+
 export type Chlidren = {
   text: string;
   italic: boolean;

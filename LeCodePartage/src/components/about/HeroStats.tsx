@@ -1,19 +1,37 @@
 import { useEffect, useState } from "react";
-import { getMemberByField } from "../../functions/getData";
-import { MembersType } from "../../types";
+import getMembers, {
+  getArticles,
+  getEvents,
+  getMemberByField,
+} from "../../functions/getData";
+import { HeroStatsText, MembersType } from "../../types";
 import AuthorCard from "../AuthorCard";
 
 function HeroStats() {
-  const stats: { title: string; text: string }[] = [
-    { title: "004", text: "Postes publiés" },
-    { title: "004", text: "Postes publiés" },
-    { title: "004", text: "Postes publiés" },
-  ];
+  const [stats, setStats] = useState<{ title: string; text: string }[]>([]);
 
   const [author, setAuthor] = useState<MembersType | null>(null);
   useEffect(() => {
     getMemberByField("slug", "ryan-ez-zerqti").then((data) =>
       setAuthor(data.data[0]),
+    );
+    Promise.all([getMembers(), getArticles(), getEvents()]).then(
+      ([members, articles, events]) => {
+        setStats([
+          {
+            title: getCleanNumber(members.meta.pagination.total),
+            text: HeroStatsText.MEMBERS,
+          },
+          {
+            title: getCleanNumber(articles?.meta?.pagination?.total),
+            text: HeroStatsText.ARTICLES,
+          },
+          {
+            title: getCleanNumber(events?.meta?.pagination?.total),
+            text: HeroStatsText.EVENTS,
+          },
+        ]);
+      },
     );
   }, []);
 
@@ -48,5 +66,14 @@ function HeroStats() {
     </>
   );
 }
+
+const getCleanNumber = (number: number) => {
+  if (number < 10) {
+    return `00${number}`;
+  } else if (number >= 10 && number < 100) {
+    return `0${number}`;
+  }
+  return number.toString();
+};
 
 export default HeroStats;
