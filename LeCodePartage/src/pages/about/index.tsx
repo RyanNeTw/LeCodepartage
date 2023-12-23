@@ -28,8 +28,8 @@ function AboutPage() {
       text: "Notre focus est unique, nous mettons en avant exclusivement les projets open source français.",
     },
     {
-      title: "Équipe de 7 Développeurs",
-      text: "Nous sommes une équipe soudée de 7 développeurs passionnés, dédiée à la production de contenu de qualité.",
+      title: "Équipe de 6 Développeurs",
+      text: "Nous sommes une équipe soudée de 6 développeurs passionnés, dédiée à la production de contenu de qualité.",
     },
     {
       title: "Fréquence de Publication",

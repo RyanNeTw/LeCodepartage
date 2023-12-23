@@ -33,12 +33,12 @@ const ArticlePage = () => {
         <ArticleCard articles={article} isArticle={true} isBig={true} />
         <ul>
           {article[0]?.attributes?.content?.map((content, index) => (
-            <li key={index} className="pb-2">
+            <li key={index}>
               <ArticleContent content={content} />
             </li>
           ))}
         </ul>
-        <div className="h-0.5 w-full bg-dark-red"></div>
+        <div className="h-0.5 w-full bg-dark-red my-4"></div>
         <div className="flex justify-end">
           <AuthorCard
             author={article[0]?.attributes?.member?.data}
@@ -93,11 +93,9 @@ const ArticleContent: FC<{ content: Content }> = ({
   return (
     <>
       <div
-        className={`${
-          content?.children?.some((i) => i.type === TypeText.LINK)
-            ? "flex flex-wrap gap-1 "
-            : ""
-        } ${content?.image ? "flex justify-center" : ""}`}
+        className={`flex flex-wrap gap-1 ${
+          content?.image ? "flex justify-center" : ""
+        }`}
       >
         {content?.children?.map((item, index) => (
           <div key={index}>
@@ -122,9 +120,15 @@ const guessTextType = (
     navigator.clipboard.writeText(link);
   };
 
+  if (content?.text?.length === 0 && type !== TypeText.IMAGE) return <></>;
+
   switch (type) {
     case TypeText.HEADING:
-      return <Title title={content?.text} />;
+      return (
+        <div className="py-8">
+          <Title title={content?.text} />
+        </div>
+      );
     case TypeText.LINK:
       return (
         <a
@@ -138,10 +142,10 @@ const guessTextType = (
         </a>
       );
     case TypeText.IMAGE:
-      return <img src={image?.url} alt="" />;
+      return <img src={image?.url} alt="" className="py-4" />;
     case TypeText.CODE:
       return (
-        <div className="bg-dark-blue rounded-lg group relative">
+        <div className="bg-dark-blue rounded-lg group relative my-2">
           <p
             className="text-white-color p-4 cursor-pointer"
             onClick={() => Copy(content?.text)}
@@ -152,9 +156,9 @@ const guessTextType = (
       );
     case TypeText.QUOTE:
       return (
-        <div className="bg-dark-blue border-l-4 border-light-blue">
-          <p className="font-bold italic text-white-color p-4">
-            "{content?.text}"
+        <div className="bg-dark-blue border-l-4 border-light-blue my-2 rounded-r-lg flex justify-center">
+          <p className="font-bold italic text-white-color p-4 text-center">
+            {content?.text}
           </p>
         </div>
       );

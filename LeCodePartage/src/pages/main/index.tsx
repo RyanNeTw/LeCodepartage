@@ -33,7 +33,7 @@ function MainPage() {
         />
         <ArticleCard title={"Nos articles { } :"} articles={articles} />
       </div>
-      <HeroWithList events={events} />
+      <HeroWithList events={events.slice(events.length - 4, events.length)} />
       <div className="w-full px-page py-medium">
         <ArticleCard
           twice={true}

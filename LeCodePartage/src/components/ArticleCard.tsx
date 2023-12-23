@@ -23,7 +23,7 @@ const ArticleCard: FC<{
     <>
       {title ? <Title title={title} /> : null}
       <ul
-        className="flex flex-wrap w-full gap-4 justify-between pb-12 pt-8"
+        className="flex flex-wrap w-full gap-y-12 justify-between pb-12 pt-8"
         id={`${isBig ? "" : "firstArticle"}`}
       >
         {elements?.map((article, index) => (
@@ -71,7 +71,7 @@ const Article: FC<{
   return (
     <>
       <div
-        className={`flex bg-center cursor-pointer rounded-lg ${
+        className={`flex bg-center cursor-pointer rounded-lg shadow hover:shadow-md ${
           isBig ? "flex-row" : " flex-col"
         }`}
       >
@@ -87,7 +87,7 @@ const Article: FC<{
           </h4>
         </div>
         <div
-          className={`px-small pb-small flex flex-col gap-4 w-full p-8 hover:shadow ${
+          className={`px-small pb-small flex flex-col gap-4 w-full p-8 ${
             isBig ? "rounded-r-lg" : "rounded-b-lg"
           }`}
         >
