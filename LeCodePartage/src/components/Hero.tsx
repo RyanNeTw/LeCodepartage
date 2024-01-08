@@ -7,21 +7,23 @@ const Hero: React.FC<{ image?: string; reactElement: ReactElement }> = ({
   return (
     <>
       <div
-        className={`bg-dark-blue rounded-br-full relative flex flex-row ${
+        className={`bg-dark-blue lg:rounded-br-full relative flex flex-row ${
           image ? "justify-between" : "justify-center"
-        } px-page items-center py-small`}
+        } px-8 lg:px-page items-center py-small`}
       >
         {reactElement}
 
         {image ? (
           <img
             src={`${window.location.origin}/images/${image}`}
-            className="pr-16"
+            className="hidden md:block md:pr-16"
+            alt="Illustration"
           />
         ) : null}
         <img
           src={`${window.location.origin}/images/banner.svg`}
           className={`${image ? "top-2/4" : ""} absolute -z-50 right-1/4`}
+          alt="Illustration"
         />
       </div>
     </>

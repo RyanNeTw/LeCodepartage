@@ -99,6 +99,7 @@ function Footer() {
           <img
             src={`${window.location.origin}/images/peopleApprouving.svg`}
             alt="People approuving"
+            className="md:block hidden"
           />
         </section>
 
