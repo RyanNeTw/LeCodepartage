@@ -2,6 +2,9 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    screens: {
+      "xsm": "580px", 
+    },
     extend: {
       colors: {
         "light-red": "#DA2C38",

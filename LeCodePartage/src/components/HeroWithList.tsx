@@ -7,7 +7,7 @@ const HeroWithList: FC<{ events: EventsType[] }> = ({ events }) => {
 
   return (
     <>
-      <section className="bg-dark-blue px-page flex flex-row justify-between py-12 relative">
+      <section className="bg-dark-blue px-8 lg:px-page flex flex-row justify-between py-12 relative">
         <img
           src="./images/simpleLogo.png"
           alt="LeCodePartagé's logo"

@@ -13,7 +13,7 @@ const ArticleCard: FC<{
   twice?: boolean;
   isArticle?: boolean;
 }> = ({ articles, isBig = false, title, twice = false, isArticle = false }) => {
-  const elements: ArticlesType[] | null = isBig
+  const elements: ArticlesType[] | undefined = isBig
     ? articles?.slice(articles?.length - 1)
     : twice
       ? articles?.slice(articles?.length - 2)

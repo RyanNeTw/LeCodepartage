@@ -25,7 +25,7 @@ function MainPage() {
   return (
     <>
       <Hero image="lightInSpace.svg" reactElement={<HeroMainPage />} />
-      <div className="w-full px-page py-medium">
+      <div className="w-full px-8 lg:px-page py-medium">
         <ArticleCard
           isBig={true}
           title={"Notre article à la une :"}
@@ -34,7 +34,7 @@ function MainPage() {
         <ArticleCard title={"Nos articles { } :"} articles={articles} />
       </div>
       <HeroWithList events={events.slice(events.length - 4, events.length)} />
-      <div className="w-full px-page py-medium">
+      <div className="w-full px-8 lg:px-page py-medium">
         <ArticleCard
           twice={true}
           title={"Au cas où vous l’auriez manqué :"}

@@ -4,7 +4,7 @@ import { LinkedinButton } from "../pages/main";
 function Footer() {
   return (
     <>
-      <footer className="bg-dark-blue px-page flex flex-col justify-between py-medium min-h-screen">
+      <footer className="bg-dark-blue px-8 lg:px-page flex flex-col justify-between py-medium min-h-screen">
         <section className="flex flex-row justify-between items-center">
           <div className="flex flex-row gap-2 items-center">
             <img
@@ -99,7 +99,7 @@ function Footer() {
           <img
             src={`${window.location.origin}/images/peopleApprouving.svg`}
             alt="People approuving"
-            className="md:block hidden"
+            className="lg:block hidden"
           />
         </section>
 
