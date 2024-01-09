@@ -7,9 +7,9 @@ const Hero: React.FC<{ image?: string; reactElement: ReactElement }> = ({
   return (
     <>
       <div
-        className={`bg-dark-blue lg:rounded-br-full relative flex flex-row ${
+        className={`bg-dark-blue md:rounded-br-full relative flex flex-row px-8 lg:px-page items-center py-small ${
           image ? "justify-between" : "justify-center"
-        } px-8 lg:px-page items-center py-small`}
+        }`}
       >
         {reactElement}
 
@@ -22,7 +22,7 @@ const Hero: React.FC<{ image?: string; reactElement: ReactElement }> = ({
         ) : null}
         <img
           src={`${window.location.origin}/images/banner.svg`}
-          className={`${image ? "top-2/4" : ""} absolute -z-50 right-1/4`}
+          className={`${image ? "top-1/4 md:top-2/4" : ""} absolute -z-50 right-1/4 hidden sm:block`}
           alt="Illustration"
         />
       </div>

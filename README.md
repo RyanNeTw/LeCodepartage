@@ -4,8 +4,8 @@ React Js - Tailwind - TypeScript - Strapie
 
 ### To install the project
 
-- git clone `git@github.com:RyanNeTw/LeCodepartage.git`
-- `npm i`
+- git clone `git@github.com:RyanNeTw/LeCodepartage.git``
+- `pnpm i`
 - `npm run dev`
 
 ### Package used
