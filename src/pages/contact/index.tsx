@@ -4,7 +4,7 @@ import Title from '../../components/Title';
 const ContactPage = () => {
     return (
         <>
-            <div className="px-page py-medium min-h-screen">
+            <div className="px-8 lg:px-page py-medium min-h-screen">
                 <div className="flex flex-row justify-between items-center pb-small">
                     <div className="w-full flex flex-col gap-12 justify-between">
                         <Title
@@ -31,11 +31,11 @@ const ContactPage = () => {
                             <input
                                 type="submit"
                                 value="Envoyer"
-                                className="border border-dark-blue w-1/4 cursor-pointer px-small py-midSmall rounded-3xl text-dark-blue self-end hover:bg-dark-blue hover:text-white-color"
+                                className="border border-dark-blue w-1/4 cursor-pointer px-small py-midSmall rounded-3xl text-dark-blue self-end hover:bg-dark-blue hover:text-white-color w-fit"
                             />
                         </div>
                     </div>
-                    <img src="./images/MailIllustration.svg" alt="" />
+                    <img src="./images/MailIllustration.svg" alt="Illustration" className="hidden md:block" />
                 </div>
             </div>
             <Breadcrumb />

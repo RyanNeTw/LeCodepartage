@@ -2,7 +2,7 @@ import AuthorCard from '../../components/AuthorCard';
 import Hero from '../../components/Hero';
 import { FC, useEffect, useState } from 'react';
 import ArticleCard from '../../components/ArticleCard';
-import Breadcrumb from '../../components/breadCrumb';
+import Breadcrumb from '../../components/Breadcrumb';
 import { ArticlesType, MembersType } from '../../types';
 import { getArticlesByField, getMemberByField } from '../../functions/getData';
 
