@@ -48,7 +48,7 @@ const AuthorCard: FC<{
                 </div>
                 <div className={`flex flex-col ${reactComponent ? 'mt-2' : null}`}>
                     <div className="flex flex-row gap-4 relative items-center">
-                        <div className={`flex ${isRow ? 'flex-row gap-1' : 'flex-col'}`}>
+                        <div className={`hidden xsm:flex ${isRow ? 'flex-row gap-1' : 'flex-col'}`}>
                             <div className="font-bold text-light-blue">{author?.attributes?.fullName}</div>
                             <div className={`${isBackground ? 'text-white-color' : 'text-black-color'}`}>
                                 {isRow ? ' - ' : null} {author?.attributes?.job}

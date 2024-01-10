@@ -31,7 +31,7 @@ const ArticleCard: FC<{
                         to={`/article/${article?.attributes?.slug}`}
                         state={article}
                         key={index}
-                        className={`${isBig ? 'w-full' : 'w-5/12'}`}
+                        className={`${isBig ? 'w-full' : 'w-5/12 min-w-[80vw] sm:min-w-[20rem] xsm:max-w-[40vw]'}`}
                     >
                         <Article article={article} isBig={isBig} isArticle={isArticle} />
                     </Link>
@@ -75,7 +75,7 @@ const Article: FC<{
             >
                 <div
                     className={`w-full bg-no-repeat bg-cover bg-center relative group overflow-hidden ${
-                        isBig ? 'rounded-l-lg' : 'h-52 rounded-t-lg'
+                        isBig ? 'rounded-l-lg hidden xsm:block' : 'h-52 rounded-t-lg'
                     }`}
                     style={{ backgroundImage: `url(${imageUrl})` }}
                 >
@@ -95,7 +95,7 @@ const Article: FC<{
                             ? article?.attributes?.description
                             : article?.attributes?.description?.substring(0, 150) + '...'}
                     </p>
-                    <div className="flex flex-row justify-between w-full items-end">
+                    <div className="flex flex-row items-center xsm:items-end justify-between w-full">
                         {!isArticle ? <AuthorCard author={member} isBackground={false} /> : null}
                         <div className="flex flex-col">
                             <h4 className="">Le {getDate(article?.attributes?.date)}</h4>
