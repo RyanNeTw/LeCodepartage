@@ -113,7 +113,11 @@ const Article: FC<{
 const ArticleCardSkelton: FC<{ isBig?: boolean }> = ({ isBig = false }) => {
     return (
         <>
-            <div className={`flex ${isBig ? 'flex-col xsm:flex-row  w-full' : ' flex-col w-5/12'} gap-4 animate-pulse`}>
+            <div
+                className={`flex ${
+                    isBig ? 'w-full' : 'w-5/12 min-w-[80vw] sm:min-w-[20rem] xsm:max-w-[40vw]'
+                } gap-4 animate-pulse`}
+            >
                 <div className={`w-full bg-grey rounded-lg ${isBig ? '' : 'h-32'}`}></div>
                 <div className="px-small flex flex-col gap-2 w-full">
                     <div className="rounded-full w-full bg-grey h-4 "></div>

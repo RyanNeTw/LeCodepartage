@@ -19,7 +19,7 @@ const ArticlePage = () => {
 
     return (
         <>
-            <div className="px-page py-medium flex flex-col gap-4">
+            <div className="px-8 lg:px-page py-medium flex flex-col gap-4">
                 <ArticleCard articles={article} isArticle={true} isBig={true} />
                 <ul>
                     {article[0]?.attributes?.content?.map((content, index) => (
@@ -29,7 +29,7 @@ const ArticlePage = () => {
                     ))}
                 </ul>
                 <div className="h-0.5 w-full bg-dark-red my-4"></div>
-                <div className="flex justify-end">
+                <div className="flex w-full xsm:justify-end">
                     <AuthorCard
                         author={article[0]?.attributes?.member?.data}
                         isBackground={false}

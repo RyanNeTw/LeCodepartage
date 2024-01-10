@@ -24,7 +24,7 @@ const AuthorPage = () => {
         <>
             <Hero reactElement={<HeroAuthor author={author} />} />
             {articles && articles.length > 0 ? (
-                <div className="px-page py-medium">
+                <div className="px-8 lg:px-page py-medium">
                     <ArticleCard title="Dernier article publié :" isBig={true} articles={articles} />
                     <ArticleCard title="Ses articles { } :" articles={articles} />
                     <ArticleCard title="Au cas où vous l’auriez manqué :" twice={true} articles={articles} />
