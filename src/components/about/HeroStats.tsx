@@ -40,8 +40,7 @@ function HeroStats() {
                 </div>
 
                 <div className="flex flex-row items-stretch">
-                    <img src="./images/arrowLeft.svg" className="w-8 sm:w-16 self-start" />
-                    <div className="self-center flex flex-col gap-4">
+                    <div className="self-center flex flex-col gap-4 px-8 relative">
                         <p className="text-white-color">
                             Notre mission est simple : éclairer, informer et connecter la communauté de développeurs
                             autour des projets <span className="text-light-red">open source</span> qui façonnent
@@ -50,8 +49,12 @@ function HeroStats() {
                             faciliter cela.
                         </p>
                         <AuthorCard author={author} />
+                        <img
+                            src="./images/arrowLeft.svg"
+                            className="w-8 sm:w-16 self-start absolute top-0 sm:-top-[40px] left-0 sm:-left-[35px]"
+                        />
+                        <img src="./images/arrowRight.png" className="w-8 sm:w-16 self-end absolute bottom-0 right-0" />
                     </div>
-                    <img src="./images/arrowRight.png" className="w-8 sm:w-16 self-end" />
                 </div>
             </section>
         </>
