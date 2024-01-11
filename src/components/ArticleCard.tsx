@@ -70,12 +70,12 @@ const Article: FC<{
         <>
             <div
                 className={`flex bg-center cursor-pointer rounded-lg shadow hover:shadow-md ${
-                    isBig ? 'flex-row' : ' flex-col'
+                    isBig ? 'flex-col sm:flex-row' : ' flex-col'
                 }`}
             >
                 <div
-                    className={`w-full bg-no-repeat bg-cover bg-center relative group overflow-hidden ${
-                        isBig ? 'rounded-l-lg hidden xsm:block' : 'h-52 rounded-t-lg'
+                    className={`w-full h-[275px] sm:h-auto bg-no-repeat bg-cover bg-center relative group overflow-hidden ${
+                        isBig ? 'rounded-l-lg' : 'h-52 rounded-t-lg'
                     }`}
                     style={{ backgroundImage: `url(${imageUrl})` }}
                 >
@@ -114,7 +114,7 @@ const ArticleCardSkelton: FC<{ isBig?: boolean }> = ({ isBig = false }) => {
     return (
         <>
             <div
-                className={`flex ${
+                className={`flex flex-col ${
                     isBig ? 'w-full' : 'w-5/12 min-w-[80vw] sm:min-w-[20rem] xsm:max-w-[40vw]'
                 } gap-4 animate-pulse`}
             >
