@@ -55,7 +55,7 @@ function AboutPage() {
         <>
             <Hero image="computeWithGuy.svg" reactElement={<HeroElement />} />
             <div className="flex flex-col gap-12 py-medium">
-                <div className="px-8 lg:px-pagepx-page flex flex-col gap-12">
+                <div className="px-8 lg:px-page flex flex-col gap-12">
                     <Testimonial title="Notre histoire :" text={text1} image="teamStudying.png" />
                     <Testimonial title="En quelques mots :" image="team.png" text={text2} direction={true} />
                 </div>
