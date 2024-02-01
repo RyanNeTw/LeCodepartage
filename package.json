@@ -12,9 +12,12 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-google-recaptcha": "^3.1.0",
+    "react-hook-form": "^7.50.0",
     "react-router-dom": "^6.19.0"
   },
   "devDependencies": {
+    "@types/node": "^20.11.15",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
