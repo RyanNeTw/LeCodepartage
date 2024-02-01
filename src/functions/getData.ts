@@ -1,5 +1,7 @@
+import { Inputs } from "../components/Comment";
 import {
   ArticlesType,
+  Comment,
   EventsType,
   GetDataType,
   MembersType,
@@ -49,6 +51,13 @@ export const getArticlesByField = async (
   return await response.json();
 };
 
+export const getCommentsAricle = async (id: string): Promise<Comment[]> => {
+  const response = await fetch(
+    `http://localhost:1337/api/comments/api::article.article:${id}`,
+  );
+  return await response.json();
+};
+
 export const getEvents = async (): Promise<GetDataType<EventsType>> => {
   const response = await fetch(
     "http://localhost:1337/api/events?populate=deep",
@@ -56,4 +65,29 @@ export const getEvents = async (): Promise<GetDataType<EventsType>> => {
   return await response.json();
 };
 
+export const sendComment = async (
+  id: string,
+  data: Inputs,
+): Promise<boolean> => {
+  const response = await fetch(
+    `http://localhost:1337/api/comments/api::article.article:${id}`,
+    {
+      method: "POST",
+      body: JSON.stringify({
+        author: {
+          id: 1,
+          name: data.name,
+          email: data.name + "@gmail.com",
+        },
+        content: data.content,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    },
+  );
+
+  const res = await response.json();
+  return res?.id ? true : false;
+};
 export default getMembers;

@@ -184,3 +184,26 @@ export type Attributes = {
   updatedAt: Date;
   publishedAt: Date;
 };
+
+export type Comment = {
+  id: number;
+  content: string;
+  blocked: boolean;
+  blockedThread: boolean;
+  blockReason: null;
+  isAdminComment: null;
+  removed: null;
+  approvalStatus: null;
+  createdAt: string;
+  updatedAt: string;
+  gotThread: boolean;
+  author: Author;
+  children: any[];
+};
+
+export type Author = {
+  id: string;
+  name: null | string;
+  email: string;
+  avatar: null;
+};

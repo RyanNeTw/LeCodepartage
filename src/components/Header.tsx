@@ -70,12 +70,23 @@ function Header() {
             </li>
           </ul>
         </nav>
-        <img className="xsm:hidden w-8 invert z-100" src={`${window.location.origin}/images/burger.png`} onClick={() => setShowMenu(!showMenu)} />
-        <div className={`fixed bg-black/25 w-screen h-screen top-0 right-0 z-50 xsm:hidden transition-all delay-150 ${showMenu ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        <img
+          className="xsm:hidden w-8 invert z-100"
+          src={`${window.location.origin}/images/burger.png`}
+          onClick={() => setShowMenu(!showMenu)}
+        />
+        <div
+          className={`fixed bg-black/25 w-screen h-screen top-0 right-0 z-50 xsm:hidden transition-all delay-150 ${showMenu ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
           onClick={() => setShowMenu(false)}
         >
-          <div className={`z-100 bg-dark-blue w-1/2 h-full flex flex-col justify-center items-center transition-all duration-300 delay-150 ${showMenu ? 'ml-[50vw]' : 'ml-[100vw]'}`}>
-          <img className="absolute top-[2.05rem] right-8 xsm:hidden w-8 invert z-100" src={`${window.location.origin}/images/burger.png`} onClick={() => setShowMenu(!showMenu)} />
+          <div
+            className={`z-100 bg-dark-blue w-1/2 h-full flex flex-col justify-center items-center transition-all duration-300 delay-150 ${showMenu ? "ml-[50vw]" : "ml-[100vw]"}`}
+          >
+            <img
+              className="absolute top-[2.05rem] right-8 xsm:hidden w-8 invert z-100"
+              src={`${window.location.origin}/images/burger.png`}
+              onClick={() => setShowMenu(!showMenu)}
+            />
             <ul className="flex flex-col gap-8 items-center">
               <li className="text-white-color cursor-pointer headerNavLink relative transition hover:scale-110 ">
                 <NavLink
@@ -108,7 +119,6 @@ function Header() {
             </ul>
           </div>
         </div>
-
       </header>
       {showButton && (
         <a
