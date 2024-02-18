@@ -76,7 +76,7 @@ export const LinkedinButton = () => {
       <a
         href="https://www.linkedin.com/in/le-code-partage-3506492a2/"
         target="_blank"
-        className="px-small py-reallySmall border border-light-blue text-light-blue rounded-3xl hover:bg-light-blue hover:text-white-color flex flex-row gap-2 items-center justify-center xsm:justify-normal text-center w-3/4 xsm:w-fit"
+        className="px-small py-reallySmall border border-white-color-blue text-white-color rounded-3xl hover:bg-light-blue hover:text-white-color hover:border-light-blue flex flex-row gap-2 items-center justify-center xsm:justify-normal text-center w-3/4 xsm:w-fit"
       >
         LinkedIn
       </a>
