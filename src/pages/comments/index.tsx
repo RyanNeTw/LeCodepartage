@@ -14,7 +14,12 @@ const CommentsPage = () => {
   return (
     <>
       <div className="py-medium px-page">
-        <CommentCard comments={comments} isBig={true} id={path[5]} />
+        <CommentCard
+          comments={comments}
+          setComments={setComments}
+          isBig={true}
+          id={path[5]}
+        />
       </div>
     </>
   );

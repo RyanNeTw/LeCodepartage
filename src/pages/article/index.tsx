@@ -21,8 +21,10 @@ const ArticlePage = () => {
   }, [path]);
 
   useEffect(() => {
-    getCommentsAricle(article[0]?.id.toString()).then((data) => setComments(data));
-  }, [article]);
+    getCommentsAricle(article[0]?.id.toString()).then((data) =>
+      setComments(data),
+    );
+  }, [article, path]);
 
   return (
     <>
@@ -36,14 +38,19 @@ const ArticlePage = () => {
           ))}
         </ul>
         <div>
-          {comments?.length > 2 ? (
-            <>
-              <CommentCard comments={comments.slice(Math.max(comments.length - 2, 1))} id={article[0]?.id.toString()} />
-              <Link to={`/article/comments/${article[0]?.id}`} className="text-light-blue flex justify-end pt-small">
-                Lire tous les commentaires
-              </Link>
-            </>
-          ) : null}
+          <CommentCard
+            comments={comments.slice(Math.max(comments.length - 2, 1))}
+            setComments={setComments}
+            id={article[0]?.id.toString()}
+          />
+          {comments?.length > 0 && (
+            <Link
+              to={`/article/comments/${article[0]?.id}`}
+              className="text-light-blue flex justify-end pt-small"
+            >
+              Lire tous les commentaires
+            </Link>
+          )}
         </div>
         <div className="h-0.5 w-full bg-dark-red my-4"></div>
         <div className="flex w-full xsm:justify-end">
