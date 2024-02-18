@@ -18,11 +18,6 @@ const CommentCard: FC<{ comments: Comment[]; isBig?: boolean; id: string }> = ({
   const [formStatus, setFormStatus] = useState<boolean>(false);
   const [showModal, setShowModal] = useState<boolean>(false);
 
-  const handleCaptcha = (value) => {
-    console.log("Captcha value:", value);
-    // Ici, vous pouvez traiter la valeur du captcha, par exemple en la soumettant à votre serveur
-  };
-
   const {
     register,
     handleSubmit,
