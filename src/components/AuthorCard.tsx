@@ -11,7 +11,7 @@ const AuthorCard: FC<{
 }> = ({ author, isRow = false, reactComponent, isBackground = true }) => {
   const navigate = useNavigate();
 
-  const imageUrl = `http://localhost:1337${author?.attributes?.picture?.data?.attributes?.url}`;
+  const imageUrl = `${author?.attributes?.picture?.data?.attributes?.url}`;
 
   if (!author?.id) {
     return (

@@ -59,7 +59,7 @@ const Article: FC<{
   isBig: boolean;
   isArticle: boolean;
 }> = ({ article, isBig, isArticle }) => {
-  const imageUrl = `http://localhost:1337${article?.attributes?.image?.data?.attributes?.url}`;
+  const imageUrl = `${article?.attributes?.image?.data?.attributes?.url}`;
   const [member, setMember] = useState<MembersType | null>(null);
 
   useEffect(() => {
