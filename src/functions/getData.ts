@@ -8,7 +8,7 @@ import {
   Meta,
 } from "../types";
 
-const isDev: boolean = true;
+const isDev: boolean = false;
 const url: string = isDev
   ? "http://localhost:1337/api"
   : "https://lecodepartage/api";
