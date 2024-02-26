@@ -11,7 +11,7 @@ import {
 const isDev: boolean = false;
 const url: string = isDev
   ? "http://localhost:1337/api"
-  : "https://api.lecodepartage.fr/api";
+  : "http://api.lecodepartage.fr/api";
 
 const getMembers = async (): Promise<GetDataType<MembersType>> => {
   const response = await fetch(`${url}/members?populate=deep`);
