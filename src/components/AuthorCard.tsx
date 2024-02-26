@@ -11,7 +11,7 @@ const AuthorCard: FC<{
 }> = ({ author, isRow = false, reactComponent, isBackground = true }) => {
   const navigate = useNavigate();
 
-  const imageUrl = `${author?.attributes?.picture?.data?.attributes?.url}`;
+  const imageUrl = `http://api.lecodepartage.fr/${author?.attributes?.picture?.data?.attributes?.url}`;
 
   if (!author?.id) {
     return (
