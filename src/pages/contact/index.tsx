@@ -1,9 +1,18 @@
+import { useEffect } from 'react';
 import Breadcrumb from '../../components/Breadcrumb';
 import Title from '../../components/Title';
 import { useForm, ValidationError } from '@formspree/react';
 
 const ContactPage = () => {
-  const [state, handleSubmit] = useForm('xyyrjbov');
+  const [state, handleSubmit, reset] = useForm('xyyrjbov');
+
+  useEffect(() => {
+    if (state.succeeded) {
+      for (const form of document.getElementsByTagName('form')) {
+        form.reset();
+      }
+    }
+  }, [state.succeeded, reset]);
 
   return (
     <>
@@ -48,7 +57,9 @@ const ContactPage = () => {
                 />
               </div>
               {state.succeeded && (
-                <p className="text-center text-xl">Thanks for your message! We'll come back to you soon !</p>
+                <p className="text-center text-xl">
+                  Merci de nous avoir contacté ! On reviendra vers vous au plus vite !
+                </p>
               )}
             </div>
             <img src="./images/MailIllustration.svg" alt="Illustration" className="hidden md:block" />
