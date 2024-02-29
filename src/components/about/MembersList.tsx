@@ -1,9 +1,9 @@
-import { MembersType } from "../../types";
-import { FC } from "react";
-import AuthorCard from "../AuthorCard";
-import Title from "../Title";
-import LinkedIn from "../../assets/Linkedin";
-import Github from "../../assets/Github";
+import { MembersType } from '../../types';
+import { FC } from 'react';
+import AuthorCard from '../AuthorCard';
+import Title from '../Title';
+import LinkedIn from '../../assets/Linkedin';
+import Github from '../../assets/Github';
 
 const MembersList: FC<{ members: MembersType[] }> = ({ members }) => {
   return (
@@ -36,6 +36,9 @@ const Description: FC<{ member: MembersType }> = ({ member }) => {
           href={member.attributes.linkedin}
           target="_blank"
           className="hover:opacity-70 hover:scale-110"
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
         >
           <LinkedIn />
         </a>
@@ -43,6 +46,9 @@ const Description: FC<{ member: MembersType }> = ({ member }) => {
           href={member.attributes.GitHub}
           target="_blank"
           className="hover:opacity-70 hover:scale-110"
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
         >
           <Github />
         </a>
