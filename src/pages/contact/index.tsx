@@ -48,7 +48,9 @@ const ContactPage = () => {
                 />
               </div>
               {state.succeeded && (
-                <p className="text-center text-xl">Thanks for your message! We'll come back to you soon !</p>
+                <p className="text-center text-xl">
+                  Merci de nous avoir contacté ! On reviendra vers vous au plus vite !
+                </p>
               )}
             </div>
             <img src="./images/MailIllustration.svg" alt="Illustration" className="hidden md:block" />
