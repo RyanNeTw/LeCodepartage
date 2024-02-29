@@ -1,9 +1,18 @@
+import { useEffect } from 'react';
 import Breadcrumb from '../../components/Breadcrumb';
 import Title from '../../components/Title';
 import { useForm, ValidationError } from '@formspree/react';
 
 const ContactPage = () => {
-  const [state, handleSubmit] = useForm('xyyrjbov');
+  const [state, handleSubmit, reset] = useForm('xyyrjbov');
+
+  useEffect(() => {
+    if (state.succeeded) {
+      for (const form of document.getElementsByTagName('form')) {
+        form.reset();
+      }
+    }
+  }, [state.succeeded, reset]);
 
   return (
     <>
