@@ -31,7 +31,11 @@ function MainPage() {
           title={"Notre article à la une :"}
           articles={articles}
         />
-        <ArticleCard title={"Nos articles { } :"} articles={articles} />
+        <ArticleCard
+          title={"Nos articles { } :"}
+          articles={articles}
+          search={true}
+        />
       </div>
       <HeroWithList events={events.slice(0, 4)} />
       <div className="w-full px-8 lg:px-page py-medium">
@@ -74,7 +78,7 @@ export const LinkedinButton = () => {
   return (
     <>
       <a
-        href="https://www.linkedin.com/in/le-code-partage-3506492a2/"
+        href="https://www.linkedin.com/company/lecodepartage/"
         target="_blank"
         className="px-small py-reallySmall border border-white-color-blue text-white-color rounded-3xl hover:bg-light-blue hover:text-white-color hover:border-light-blue flex flex-row gap-2 items-center justify-center xsm:justify-normal text-center w-3/4 xsm:w-fit"
       >

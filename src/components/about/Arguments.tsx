@@ -1,8 +1,8 @@
-import GlobeSvg from '../../assets/Globe';
-import GrowthChart from '../../assets/GrowthChart';
-import Macbook from '../../assets/Macbook';
-import People from '../../assets/People';
-import Team from '../../assets/Team';
+import GlobeSvg from "../../assets/Globe";
+import GrowthChart from "../../assets/GrowthChart";
+import Macbook from "../../assets/Macbook";
+import People from "../../assets/People";
+import Team from "../../assets/Team";
 
 type ArgumentsType = {
   icon: JSX.Element;
@@ -10,7 +10,7 @@ type ArgumentsType = {
 };
 
 const Arguments = () => {
-  const size = 'w-8';
+  const size = "w-8";
 
   const elements: ArgumentsType[] = [
     {
@@ -19,7 +19,7 @@ const Arguments = () => {
     },
     {
       icon: <GrowthChart size={size} />,
-      text: 'Évolution constante de la tech française.',
+      text: "Évolution constante de la tech française.",
     },
     {
       icon: <GlobeSvg size={size} />,

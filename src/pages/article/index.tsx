@@ -1,23 +1,34 @@
-import { FC, ReactElement, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import ArticleCard from '../../components/ArticleCard';
-import AuthorCard from '../../components/AuthorCard';
-import Breadcrumb from '../../components/Breadcrumb';
-import CommentCard from '../../components/Comment';
-import Title from '../../components/Title';
-import { getArticlesByField, getCommentsAricle } from '../../functions/getData';
-import { ArticlesType, TypeText, Content, Chlidren, DataAttributes, Comment } from '../../types';
+import { FC, ReactElement, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import ArticleCard from "../../components/ArticleCard";
+import AuthorCard from "../../components/AuthorCard";
+import Breadcrumb from "../../components/Breadcrumb";
+import CommentCard from "../../components/Comment";
+import Title from "../../components/Title";
+import { getArticlesByField, getCommentsAricle } from "../../functions/getData";
+import {
+  ArticlesType,
+  TypeText,
+  Content,
+  Chlidren,
+  DataAttributes,
+  Comment,
+} from "../../types";
 
 const ArticlePage = () => {
   const [article, setArticle] = useState<ArticlesType[]>([]);
   const [articleIsMissed, setArticleIsMissed] = useState<ArticlesType[]>([]);
   const [comments, setComments] = useState<Comment[]>([]);
 
-  const path = window.location.href.split('/');
+  const path = window.location.href.split("/");
 
   useEffect(() => {
-    getArticlesByField('[slug]', path[4]).then((data) => setArticle(data?.data));
-    getArticlesByField('[isMissed]', 'true').then((data) => setArticleIsMissed(data?.data));
+    getArticlesByField("[slug]", path[4]).then((data) =>
+      setArticle(data?.data),
+    );
+    getArticlesByField("[isMissed]", "true").then((data) =>
+      setArticleIsMissed(data?.data),
+    );
   }, [path]);
 
   useEffect(() => {
@@ -62,9 +73,11 @@ const ArticlePage = () => {
           />
         </div>
         <ArticleCard
-          articles={articleIsMissed.filter((i) => i?.attributes?.slug != article[0]?.attributes?.slug)}
+          articles={articleIsMissed.filter(
+            (i) => i?.attributes?.slug != article[0]?.attributes?.slug,
+          )}
           twice={true}
-          title={'Au cas où vous l’auriez manqué :'}
+          title={"Au cas où vous l’auriez manqué :"}
         />
       </div>
       <Breadcrumb />
@@ -72,7 +85,9 @@ const ArticlePage = () => {
   );
 };
 
-const ShareLinks: FC<{ article: ArticlesType[] }> = ({ article }): ReactElement => {
+const ShareLinks: FC<{ article: ArticlesType[] }> = ({
+  article,
+}): ReactElement => {
   const shareText: string = `Je viens de lire cet article incroyable sur LeCodePartagé et je devais le partager ! Jetez un œil : ${article[0]?.attributes?.name}. #ÀLire #Inspiration`;
   return (
     <>
@@ -97,13 +112,21 @@ const ShareLinks: FC<{ article: ArticlesType[] }> = ({ article }): ReactElement 
   );
 };
 
-const ArticleContent: FC<{ content: Content }> = ({ content }): ReactElement => {
+const ArticleContent: FC<{ content: Content }> = ({
+  content,
+}): ReactElement => {
   return (
     <>
-      <div className={`flex flex-wrap gap-1 ${content?.image ? 'flex justify-center' : ''}`}>
+      <div
+        className={`flex flex-wrap gap-1 ${content?.image ? "flex justify-center" : ""}`}
+      >
         {content?.children?.map((item, index) => (
           <div key={index}>
-            {guessTextType(item.type === TypeText.TEXT ? content.type : item.type, item, content.image)}
+            {guessTextType(
+              item.type === TypeText.TEXT ? content.type : item.type,
+              item,
+              content.image,
+            )}
           </div>
         ))}
       </div>
@@ -111,7 +134,11 @@ const ArticleContent: FC<{ content: Content }> = ({ content }): ReactElement => 
   );
 };
 
-const guessTextType = (type: TypeText, content: Chlidren, image?: DataAttributes): ReactElement => {
+const guessTextType = (
+  type: TypeText,
+  content: Chlidren,
+  image?: DataAttributes,
+): ReactElement => {
   const Copy = (link: string) => {
     navigator.clipboard.writeText(link);
   };
@@ -127,8 +154,14 @@ const guessTextType = (type: TypeText, content: Chlidren, image?: DataAttributes
       );
     case TypeText.LINK:
       return (
-        <a href={content?.url} className="text-light-blue hover:underline" target={'_blank'}>
-          {content?.children[0]?.text ?? content?.children[1]?.text ?? content?.children[2].text}
+        <a
+          href={content?.url}
+          className="text-light-blue hover:underline"
+          target={"_blank"}
+        >
+          {content?.children[0]?.text ??
+            content?.children[1]?.text ??
+            content?.children[2].text}
         </a>
       );
     case TypeText.IMAGE:
@@ -136,7 +169,10 @@ const guessTextType = (type: TypeText, content: Chlidren, image?: DataAttributes
     case TypeText.CODE:
       return (
         <div className="bg-dark-blue rounded-lg group relative my-2">
-          <p className="text-white-color p-4 cursor-pointer" onClick={() => Copy(content?.text)}>
+          <p
+            className="text-white-color p-4 cursor-pointer"
+            onClick={() => Copy(content?.text)}
+          >
             {content?.text}
           </p>
         </div>
@@ -144,7 +180,9 @@ const guessTextType = (type: TypeText, content: Chlidren, image?: DataAttributes
     case TypeText.QUOTE:
       return (
         <div className="bg-dark-blue border-l-4 border-light-blue my-2 rounded-r-lg flex justify-center">
-          <p className="font-bold italic text-white-color p-4 text-center">{content?.text}</p>
+          <p className="font-bold italic text-white-color p-4 text-center">
+            {content?.text}
+          </p>
         </div>
       );
     case TypeText.LIST:
@@ -163,11 +201,11 @@ const guessTextType = (type: TypeText, content: Chlidren, image?: DataAttributes
     default:
       return (
         <p
-          className={`inline-block ${content?.italic ? 'italic' : ''} ${content?.bold ? 'font-bold' : ''} ${
-            content?.underline ? 'underline' : ''
+          className={`inline-block ${content?.italic ? "italic" : ""} ${content?.bold ? "font-bold" : ""} ${
+            content?.underline ? "underline" : ""
           }`}
         >
-          {content?.text}{' '}
+          {content?.text}{" "}
         </p>
       );
   }
