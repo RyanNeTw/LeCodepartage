@@ -1,10 +1,11 @@
-import { FC, useEffect, useState } from "react";
+import { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
 import { getMember } from "../functions/getData";
 import { ArticlesType, MembersType } from "../types";
 import AuthorCard from "./AuthorCard";
 import Title from "./Title";
 import { Link } from "react-router-dom";
 import getDate from "../functions/getDate";
+import Search from "../assets/Search";
 
 const ArticleCard: FC<{
   articles: ArticlesType[] | null;
@@ -12,16 +13,54 @@ const ArticleCard: FC<{
   title?: string;
   twice?: boolean;
   isArticle?: boolean;
-}> = ({ articles, isBig = false, title, twice = false, isArticle = false }) => {
-  const elements: ArticlesType[] | undefined = isBig
+  search?: boolean;
+}> = ({
+  articles,
+  isBig = false,
+  title,
+  twice = false,
+  isArticle = false,
+  search = false,
+}) => {
+  const [searchInput, setSearchInput] = useState<string>(null);
+  const [hoveredArticleName, setHoveredArticleName] = useState<string | null>(
+    null,
+  );
+  let elements: ArticlesType[] = isBig
     ? articles?.slice(articles?.length - 1)
     : twice
       ? articles?.slice(articles?.length - 2)
       : articles?.slice(0, articles?.length - 1).reverse();
 
+  elements =
+    searchInput?.length > 0
+      ? elements?.filter((i) =>
+          i.attributes?.title
+            ?.trim()
+            ?.toLocaleLowerCase()
+            ?.includes(searchInput?.trim()?.toLocaleLowerCase()),
+        )
+      : elements;
+
+  const handleMouseEnter = (articleName: string) => {
+    setHoveredArticleName(articleName ?? null);
+  };
+
+  const dynamicTitle =
+    title && hoveredArticleName && title?.includes("{ }")
+      ? title.replace("{ }", "{ " + hoveredArticleName + " }")
+      : title;
+
   return (
     <>
-      {title ? <Title title={title} /> : null}
+      {title ? (
+        <>
+          <div className="flex flex-wrap justify-between gap-4">
+            <Title title={dynamicTitle ?? title} />
+            {search ? <SearchBar setState={setSearchInput} /> : null}
+          </div>
+        </>
+      ) : null}
       <ul
         className="flex flex-wrap w-full gap-y-12 justify-between pb-12 pt-8"
         id={`${isBig ? "" : "firstArticle"}`}
@@ -31,6 +70,7 @@ const ArticleCard: FC<{
             to={`/article/${article?.attributes?.slug}`}
             state={article}
             key={index}
+            onMouseEnter={() => handleMouseEnter(article.attributes?.name)}
             className={`${isBig ? "w-full" : "w-5/12 min-w-[80vw] sm:min-w-[20rem] xsm:max-w-[40vw]"}`}
           >
             <Article article={article} isBig={isBig} isArticle={isArticle} />
@@ -42,6 +82,12 @@ const ArticleCard: FC<{
           <>
             <ArticleCardSkelton />
             <ArticleCardSkelton />
+          </>
+        ) : search && elements?.length === 0 ? (
+          <>
+            <h2 className="flex justify-center items-center w-full">
+              Aucun article trouvé
+            </h2>
           </>
         ) : elements?.length === 0 ? (
           <>
@@ -59,7 +105,7 @@ const Article: FC<{
   isBig: boolean;
   isArticle: boolean;
 }> = ({ article, isBig, isArticle }) => {
-  const imageUrl = `http://api.lecodepartage.fr${article?.attributes?.image?.data?.attributes?.url}`;
+  const imageUrl = `https://api.lecodepartage.fr${article?.attributes?.image?.data?.attributes?.url}`;
   const [member, setMember] = useState<MembersType | null>(null);
 
   useEffect(() => {
@@ -110,6 +156,33 @@ const Article: FC<{
               ) : null}
             </div>
           </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+const SearchBar: FC<{ setState: Dispatch<SetStateAction<string>> }> = ({
+  setState,
+}) => {
+  const style =
+    "rounded-l-lg bg-white-color border border-light-blue focus:outline-none px-midSmall w-full";
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setState(e.target.value);
+  };
+
+  return (
+    <>
+      <div className="flex flex-row">
+        <input
+          type={"text"}
+          placeholder={"Chercher"}
+          className={`${style}`}
+          onChange={handleChange}
+        />
+        <div className="bg-light-blue rounded-r-lg p-midSmall">
+          <Search />
         </div>
       </div>
     </>

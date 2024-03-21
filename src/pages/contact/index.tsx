@@ -1,14 +1,14 @@
-import { useEffect } from 'react';
-import Breadcrumb from '../../components/Breadcrumb';
-import Title from '../../components/Title';
-import { useForm, ValidationError } from '@formspree/react';
+import { useEffect } from "react";
+import Breadcrumb from "../../components/Breadcrumb";
+import Title from "../../components/Title";
+import { useForm, ValidationError } from "@formspree/react";
 
 const ContactPage = () => {
-  const [state, handleSubmit, reset] = useForm('xyyrjbov');
+  const [state, handleSubmit, reset] = useForm("xyyrjbov");
 
   useEffect(() => {
     if (state.succeeded) {
-      for (const form of document.getElementsByTagName('form')) {
+      for (const form of document.getElementsByTagName("form")) {
         form.reset();
       }
     }
@@ -33,7 +33,11 @@ const ContactPage = () => {
                     placeholder="Votre prénom"
                     className="w-1/2 border border-dark-blue bg-white-color px-small py-midSmall rounded-3xl text-dark-blue"
                   />
-                  <ValidationError prefix="Name" field="name" errors={state.errors} />
+                  <ValidationError
+                    prefix="Name"
+                    field="name"
+                    errors={state.errors}
+                  />
                   <input
                     type="text"
                     id="email"
@@ -41,7 +45,11 @@ const ContactPage = () => {
                     placeholder="Votre e-mail"
                     className="w-1/2 border border-dark-blue bg-white-color px-small py-midSmall rounded-3xl text-dark-blue"
                   />
-                  <ValidationError prefix="Email" field="email" errors={state.errors} />
+                  <ValidationError
+                    prefix="Email"
+                    field="email"
+                    errors={state.errors}
+                  />
                 </div>
                 <textarea
                   id="message"
@@ -49,7 +57,11 @@ const ContactPage = () => {
                   placeholder="De quel sujet voulez-vous parler ?"
                   className="border border-dark-blue bg-white-color px-small py-midSmall h-48 rounded-3xl text-dark-blue"
                 />
-                <ValidationError prefix="Message" field="message" errors={state.errors} />
+                <ValidationError
+                  prefix="Message"
+                  field="message"
+                  errors={state.errors}
+                />
                 <input
                   type="submit"
                   value="Envoyer"
@@ -58,11 +70,16 @@ const ContactPage = () => {
               </div>
               {state.succeeded && (
                 <p className="text-center text-xl">
-                  Merci de nous avoir contacté ! On reviendra vers vous au plus vite !
+                  Merci de nous avoir contacté ! On reviendra vers vous au plus
+                  vite !
                 </p>
               )}
             </div>
-            <img src="./images/MailIllustration.svg" alt="Illustration" className="hidden md:block" />
+            <img
+              src="./images/MailIllustration.svg"
+              alt="Illustration"
+              className="hidden md:block"
+            />
           </div>
         </div>
       </form>
