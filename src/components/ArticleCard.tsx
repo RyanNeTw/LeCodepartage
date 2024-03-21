@@ -105,7 +105,7 @@ const Article: FC<{
   isBig: boolean;
   isArticle: boolean;
 }> = ({ article, isBig, isArticle }) => {
-  const imageUrl = `http://api.lecodepartage.fr${article?.attributes?.image?.data?.attributes?.url}`;
+  const imageUrl = `https://api.lecodepartage.fr${article?.attributes?.image?.data?.attributes?.url}`;
   const [member, setMember] = useState<MembersType | null>(null);
 
   useEffect(() => {
