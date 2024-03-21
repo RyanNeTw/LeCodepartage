@@ -1,9 +1,8 @@
 import { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
-import { getMember } from "../functions/getData";
 import { ArticlesType, MembersType } from "../types";
 import AuthorCard from "./AuthorCard";
 import Title from "./Title";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import getDate from "../functions/getDate";
 import Search from "../assets/Search";
 
@@ -108,11 +107,9 @@ const Article: FC<{
   const imageUrl = `https://api.lecodepartage.fr${article?.attributes?.image?.data?.attributes?.url}`;
   const [member, setMember] = useState<MembersType | null>(null);
 
-  const location = useLocation()
-
   useEffect(() => {
-    setMember(article.attributes.member.data)
-  }, [location]);
+    setMember(article.attributes.member.data);
+  }, [article]);
 
   return (
     <>

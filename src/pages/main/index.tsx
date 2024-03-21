@@ -15,7 +15,7 @@ function MainPage() {
   const [events, setEvents] = useState<EventsType[]>([]);
   const [articlesIsMissed, setArticlesIsMissed] = useState<ArticlesType[]>([]);
 
-  let location = useLocation();
+  const location = useLocation();
 
   useEffect(() => {
     getArticles().then((data) => setArticles(data.data));

@@ -21,7 +21,7 @@ const ArticlePage = () => {
   const [comments, setComments] = useState<Comment[]>([]);
 
   const path = window.location.href.split("/");
-  let location = useLocation();
+  const location = useLocation();
 
   useEffect(() => {
     getArticlesByField("[slug]", path[4]).then((data) =>
