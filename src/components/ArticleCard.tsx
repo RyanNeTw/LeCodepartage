@@ -3,7 +3,7 @@ import { getMember } from "../functions/getData";
 import { ArticlesType, MembersType } from "../types";
 import AuthorCard from "./AuthorCard";
 import Title from "./Title";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import getDate from "../functions/getDate";
 import Search from "../assets/Search";
 
@@ -108,11 +108,11 @@ const Article: FC<{
   const imageUrl = `https://api.lecodepartage.fr${article?.attributes?.image?.data?.attributes?.url}`;
   const [member, setMember] = useState<MembersType | null>(null);
 
+  const location = useLocation()
+
   useEffect(() => {
-    getMember(article?.attributes?.member?.data?.id).then((data) =>
-      setMember(data.data),
-    );
-  }, [article]);
+    setMember(article.attributes.member.data)
+  }, [location]);
 
   return (
     <>

@@ -1,5 +1,5 @@
 import { FC, ReactElement, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import ArticleCard from "../../components/ArticleCard";
 import AuthorCard from "../../components/AuthorCard";
 import Breadcrumb from "../../components/Breadcrumb";
@@ -21,6 +21,7 @@ const ArticlePage = () => {
   const [comments, setComments] = useState<Comment[]>([]);
 
   const path = window.location.href.split("/");
+  let location = useLocation();
 
   useEffect(() => {
     getArticlesByField("[slug]", path[4]).then((data) =>
@@ -29,13 +30,13 @@ const ArticlePage = () => {
     getArticlesByField("[isMissed]", "true").then((data) =>
       setArticleIsMissed(data?.data),
     );
-  }, [path]);
+  }, [location]);
 
   useEffect(() => {
     getCommentsAricle(article[0]?.id.toString()).then((data) =>
       setComments(data),
     );
-  }, [article, path]);
+  }, [location, article]);
 
   return (
     <>

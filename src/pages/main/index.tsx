@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import ArticleCard from "../../components/ArticleCard";
 import Hero from "../../components/Hero";
 import HeroWithList from "../../components/HeroWithList";
@@ -14,13 +15,15 @@ function MainPage() {
   const [events, setEvents] = useState<EventsType[]>([]);
   const [articlesIsMissed, setArticlesIsMissed] = useState<ArticlesType[]>([]);
 
+  let location = useLocation();
+
   useEffect(() => {
     getArticles().then((data) => setArticles(data.data));
     getEvents().then((data) => setEvents(data.data));
     getArticlesByField("[isMissed]", "true").then((data) =>
       setArticlesIsMissed(data?.data),
     );
-  }, []);
+  }, [location]);
 
   return (
     <>
