@@ -1,5 +1,4 @@
 import { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
-import { getMember } from "../functions/getData";
 import { ArticlesType, MembersType } from "../types";
 import AuthorCard from "./AuthorCard";
 import Title from "./Title";
@@ -109,9 +108,7 @@ const Article: FC<{
   const [member, setMember] = useState<MembersType | null>(null);
 
   useEffect(() => {
-    getMember(article?.attributes?.member?.data?.id).then((data) =>
-      setMember(data.data),
-    );
+    setMember(article.attributes.member.data);
   }, [article]);
 
   return (

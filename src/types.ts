@@ -198,7 +198,7 @@ export type Comment = {
   updatedAt: string;
   gotThread: boolean;
   author: Author;
-  children: any[];
+  children: string[];
 };
 
 export type Author = {
