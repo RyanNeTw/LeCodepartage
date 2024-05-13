@@ -1,6 +1,6 @@
-import { NavLink, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-import Arrow from "../assets/Arrow";
+import { NavLink, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import Arrow from '../assets/Arrow';
 
 function Header() {
   const [showButton, setShowButton] = useState(false);
@@ -16,16 +16,13 @@ function Header() {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <>
-      <header
-        id="header"
-        className="bg-dark-blue flex flex-row justify-between items-center px-8 lg:px-page py-small"
-      >
+      <header id="header" className="bg-dark-blue flex flex-row justify-between items-center px-8 lg:px-page py-small">
         <Link to="/">
           <img
             src={`${window.location.origin}/images/logoWithNameAside.svg`}
@@ -41,23 +38,13 @@ function Header() {
         <nav className="hidden xsm:block">
           <ul className="flex flex-row gap-8 items-center">
             <li className="text-white-color cursor-pointer headerNavLink relative transition hover:scale-110 ">
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  isActive ? "headerNavLinkIsActive" : ""
-                }
-              >
+              <NavLink to="/" className={({ isActive }) => (isActive ? 'headerNavLinkIsActive' : '')}>
                 Blog
               </NavLink>
             </li>
             <li className="text-white-color cursor-pointer headerNavLink relative transition hover:scale-110 ">
-              <NavLink
-                to="/a-propos"
-                className={({ isActive }) =>
-                  isActive ? "headerNavLinkIsActive" : ""
-                }
-              >
-                A propos{" "}
+              <NavLink to="/a-propos" className={({ isActive }) => (isActive ? 'headerNavLinkIsActive' : '')}>
+                A propos{' '}
               </NavLink>
             </li>
             <li>
@@ -76,11 +63,15 @@ function Header() {
           onClick={() => setShowMenu(!showMenu)}
         />
         <div
-          className={`fixed bg-black/25 w-screen h-screen top-0 right-0 z-50 xsm:hidden transition-all delay-150 ${showMenu ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+          className={`fixed bg-black/25 w-screen h-screen top-0 right-0 z-50 xsm:hidden transition-all delay-150 ${
+            showMenu ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          }`}
           onClick={() => setShowMenu(false)}
         >
           <div
-            className={`z-100 bg-dark-blue w-1/2 h-full flex flex-col justify-center items-center transition-all duration-300 delay-150 ${showMenu ? "ml-[50vw]" : "ml-[100vw]"}`}
+            className={`z-100 bg-dark-blue w-1/2 h-full flex flex-col justify-center items-center transition-all duration-300 delay-150 ${
+              showMenu ? 'ml-[50vw]' : 'ml-[100vw]'
+            }`}
           >
             <img
               className="absolute top-[2.05rem] right-8 xsm:hidden w-8 invert z-100"
@@ -89,23 +80,13 @@ function Header() {
             />
             <ul className="flex flex-col gap-8 items-center">
               <li className="text-white-color cursor-pointer headerNavLink relative transition hover:scale-110 ">
-                <NavLink
-                  to="/"
-                  className={({ isActive }) =>
-                    isActive ? "headerNavLinkIsActive" : ""
-                  }
-                >
+                <NavLink to="/" className={({ isActive }) => (isActive ? 'headerNavLinkIsActive' : '')}>
                   Blog
                 </NavLink>
               </li>
               <li className="text-white-color cursor-pointer headerNavLink relative transition hover:scale-110 ">
-                <NavLink
-                  to="/a-propos"
-                  className={({ isActive }) =>
-                    isActive ? "headerNavLinkIsActive" : ""
-                  }
-                >
-                  A propos{" "}
+                <NavLink to="/a-propos" className={({ isActive }) => (isActive ? 'headerNavLinkIsActive' : '')}>
+                  A propos{' '}
                 </NavLink>
               </li>
               <li>
