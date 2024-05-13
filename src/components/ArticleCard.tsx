@@ -1,10 +1,10 @@
-import { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
-import { ArticlesType, MembersType } from "../types";
-import AuthorCard from "./AuthorCard";
-import Title from "./Title";
-import { Link } from "react-router-dom";
-import getDate from "../functions/getDate";
-import Search from "../assets/Search";
+import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
+import { ArticlesType, MembersType } from '../types';
+import AuthorCard from './AuthorCard';
+import Title from './Title';
+import { Link } from 'react-router-dom';
+import getDate from '../functions/getDate';
+import Search from '../assets/Search';
 
 const ArticleCard: FC<{
   articles: ArticlesType[] | null;
@@ -13,31 +13,19 @@ const ArticleCard: FC<{
   twice?: boolean;
   isArticle?: boolean;
   search?: boolean;
-}> = ({
-  articles,
-  isBig = false,
-  title,
-  twice = false,
-  isArticle = false,
-  search = false,
-}) => {
+}> = ({ articles, isBig = false, title, twice = false, isArticle = false, search = false }) => {
   const [searchInput, setSearchInput] = useState<string>(null);
-  const [hoveredArticleName, setHoveredArticleName] = useState<string | null>(
-    null,
-  );
+  const [hoveredArticleName, setHoveredArticleName] = useState<string | null>(null);
   let elements: ArticlesType[] = isBig
     ? articles?.slice(articles?.length - 1)
     : twice
-      ? articles?.slice(articles?.length - 2)
-      : articles?.slice(0, articles?.length - 1).reverse();
+    ? articles?.slice(articles?.length - 2)
+    : articles?.slice(0, articles?.length - 1).reverse();
 
   elements =
     searchInput?.length > 0
       ? elements?.filter((i) =>
-          i.attributes?.title
-            ?.trim()
-            ?.toLocaleLowerCase()
-            ?.includes(searchInput?.trim()?.toLocaleLowerCase()),
+          i.attributes?.title?.trim()?.toLocaleLowerCase()?.includes(searchInput?.trim()?.toLocaleLowerCase())
         )
       : elements;
 
@@ -46,8 +34,8 @@ const ArticleCard: FC<{
   };
 
   const dynamicTitle =
-    title && hoveredArticleName && title?.includes("{ }")
-      ? title.replace("{ }", "{ " + hoveredArticleName + " }")
+    title && hoveredArticleName && title?.includes('{ }')
+      ? title.replace('{ }', '{ ' + hoveredArticleName + ' }')
       : title;
 
   return (
@@ -60,17 +48,14 @@ const ArticleCard: FC<{
           </div>
         </>
       ) : null}
-      <ul
-        className="flex flex-wrap w-full gap-y-12 justify-between pb-12 pt-8"
-        id={`${isBig ? "" : "firstArticle"}`}
-      >
+      <ul className="flex flex-wrap w-full gap-y-12 justify-between pb-12 pt-8" id={`${isBig ? '' : 'firstArticle'}`}>
         {elements?.map((article, index) => (
           <Link
             to={`/article/${article?.attributes?.slug}`}
             state={article}
             key={index}
             onMouseEnter={() => handleMouseEnter(article.attributes?.name)}
-            className={`${isBig ? "w-full" : "w-5/12 min-w-[80vw] sm:min-w-[20rem] xsm:max-w-[40vw]"}`}
+            className={`${isBig ? 'w-full' : 'w-5/12 min-w-[80vw] sm:min-w-[20rem] xsm:max-w-[40vw]'}`}
           >
             <Article article={article} isBig={isBig} isArticle={isArticle} />
           </Link>
@@ -84,9 +69,7 @@ const ArticleCard: FC<{
           </>
         ) : search && elements?.length === 0 ? (
           <>
-            <h2 className="flex justify-center items-center w-full">
-              Aucun article trouvé
-            </h2>
+            <h2 className="flex justify-center items-center w-full">Aucun article trouvé</h2>
           </>
         ) : elements?.length === 0 ? (
           <>
@@ -115,12 +98,12 @@ const Article: FC<{
     <>
       <div
         className={`flex bg-center cursor-pointer rounded-lg shadow hover:shadow-md ${
-          isBig ? "flex-col sm:flex-row" : " flex-col"
+          isBig ? 'flex-col sm:flex-row' : ' flex-col'
         }`}
       >
         <div
           className={`w-full bg-no-repeat bg-cover bg-center relative group overflow-hidden ${
-            isBig ? "rounded-l-lg h-72" : "h-52 rounded-t-lg"
+            isBig ? 'rounded-l-lg h-72' : 'h-52 rounded-t-lg'
           }`}
           style={{ backgroundImage: `url(${imageUrl})` }}
         >
@@ -129,28 +112,16 @@ const Article: FC<{
             {article?.attributes?.name}
           </h4>
         </div>
-        <div
-          className={`px-small pb-small flex flex-col gap-4 w-full p-8 ${
-            isBig ? "rounded-r-lg" : "rounded-b-lg"
-          }`}
-        >
+        <div className={`px-small pb-small flex flex-col gap-4 w-full p-8 ${isBig ? 'rounded-r-lg' : 'rounded-b-lg'}`}>
           <h2 className="font-bold text-2xl">{article?.attributes?.title}</h2>
           <p className="text-wrap whitespace-break-spaces break-words">
-            {isArticle
-              ? article?.attributes?.description
-              : article?.attributes?.description?.substring(0, 150) + "..."}
+            {isArticle ? article?.attributes?.description : article?.attributes?.description?.substring(0, 150) + '...'}
           </p>
           <div className="flex flex-row items-center xsm:items-end justify-between w-full">
-            {!isArticle ? (
-              <AuthorCard author={member} isBackground={false} />
-            ) : null}
+            {!isArticle ? <AuthorCard author={member} isBackground={false} /> : null}
             <div className="flex flex-col">
               <h4 className="">Le {getDate(article?.attributes?.date)}</h4>
-              {isArticle ? (
-                <h4 className="">
-                  Temps de lecture: {article?.attributes?.readTime} minutes
-                </h4>
-              ) : null}
+              {isArticle ? <h4 className="">Temps de lecture: {article?.attributes?.readTime} minutes</h4> : null}
             </div>
           </div>
         </div>
@@ -159,11 +130,8 @@ const Article: FC<{
   );
 };
 
-const SearchBar: FC<{ setState: Dispatch<SetStateAction<string>> }> = ({
-  setState,
-}) => {
-  const style =
-    "rounded-l-lg bg-white-color border border-light-blue focus:outline-none px-midSmall w-full";
+const SearchBar: FC<{ setState: Dispatch<SetStateAction<string>> }> = ({ setState }) => {
+  const style = 'rounded-l-lg bg-white-color border border-light-blue focus:outline-none px-midSmall w-full';
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setState(e.target.value);
@@ -172,12 +140,7 @@ const SearchBar: FC<{ setState: Dispatch<SetStateAction<string>> }> = ({
   return (
     <>
       <div className="flex flex-row">
-        <input
-          type={"text"}
-          placeholder={"Chercher"}
-          className={`${style}`}
-          onChange={handleChange}
-        />
+        <input type={'text'} placeholder={'Chercher'} className={`${style}`} onChange={handleChange} />
         <div className="bg-light-blue rounded-r-lg p-midSmall">
           <Search />
         </div>
@@ -191,14 +154,10 @@ const ArticleCardSkelton: FC<{ isBig?: boolean }> = ({ isBig = false }) => {
     <>
       <div
         className={`flex flex-col ${
-          isBig
-            ? "w-full"
-            : "w-5/12 min-w-[80vw] sm:min-w-[20rem] xsm:max-w-[40vw]"
+          isBig ? 'w-full' : 'w-5/12 min-w-[80vw] sm:min-w-[20rem] xsm:max-w-[40vw]'
         } gap-4 animate-pulse`}
       >
-        <div
-          className={`w-full bg-grey rounded-lg ${isBig ? "" : "h-40"}`}
-        ></div>
+        <div className={`w-full bg-grey rounded-lg ${isBig ? '' : 'h-40'}`}></div>
         <div className="px-small flex flex-col gap-2 w-full">
           <div className="rounded-full w-full bg-grey h-4 "></div>
           <div className="rounded-full w-1/4 bg-grey h-4 "></div>
