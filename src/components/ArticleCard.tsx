@@ -1,10 +1,10 @@
-import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
+import { FC, useContext, useEffect, useState } from 'react';
 import { ArticlesType, MembersType } from '../types';
 import AuthorCard from './AuthorCard';
 import Title from './Title';
 import { Link } from 'react-router-dom';
 import getDate from '../functions/getDate';
-import Search from '../assets/Search';
+import { SearchContext } from '../contexts/SearchProvider';
 
 const ArticleCard: FC<{
   articles: ArticlesType[] | null;
@@ -14,7 +14,7 @@ const ArticleCard: FC<{
   isArticle?: boolean;
   search?: boolean;
 }> = ({ articles, isBig = false, title, twice = false, isArticle = false, search = false }) => {
-  const [searchInput, setSearchInput] = useState<string>(null);
+  const { searchValue } = useContext(SearchContext);
   const [hoveredArticleName, setHoveredArticleName] = useState<string | null>(null);
   let elements: ArticlesType[] = isBig
     ? articles?.slice(articles?.length - 1)
@@ -23,9 +23,9 @@ const ArticleCard: FC<{
     : articles?.slice(0, articles?.length - 1).reverse();
 
   elements =
-    searchInput?.length > 0
+    searchValue?.length > 0
       ? elements?.filter((i) =>
-          i.attributes?.title?.trim()?.toLocaleLowerCase()?.includes(searchInput?.trim()?.toLocaleLowerCase())
+          i.attributes?.title?.trim()?.toLocaleLowerCase()?.includes(searchValue?.trim()?.toLocaleLowerCase())
         )
       : elements;
 
@@ -44,7 +44,6 @@ const ArticleCard: FC<{
         <>
           <div className="flex flex-wrap justify-between gap-4">
             <Title title={dynamicTitle ?? title} />
-            {search ? <SearchBar setState={setSearchInput} /> : null}
           </div>
         </>
       ) : null}
@@ -124,25 +123,6 @@ const Article: FC<{
               {isArticle ? <h4 className="">Temps de lecture: {article?.attributes?.readTime} minutes</h4> : null}
             </div>
           </div>
-        </div>
-      </div>
-    </>
-  );
-};
-
-const SearchBar: FC<{ setState: Dispatch<SetStateAction<string>> }> = ({ setState }) => {
-  const style = 'rounded-l-lg bg-white-color border border-light-blue focus:outline-none px-midSmall w-full';
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setState(e.target.value);
-  };
-
-  return (
-    <>
-      <div className="flex flex-row">
-        <input type={'text'} placeholder={'Chercher'} className={`${style}`} onChange={handleChange} />
-        <div className="bg-light-blue rounded-r-lg p-midSmall">
-          <Search />
         </div>
       </div>
     </>

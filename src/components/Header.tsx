@@ -1,6 +1,7 @@
 import { NavLink, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Arrow from '../assets/Arrow';
+import SearchBar from './SearchBar';
 
 function Header() {
   const [showButton, setShowButton] = useState(false);
@@ -37,6 +38,9 @@ function Header() {
         </Link>
         <nav className="hidden xsm:block">
           <ul className="flex flex-row gap-8 items-center">
+            <li>
+              <SearchBar />
+            </li>
             <li className="text-white-color cursor-pointer headerNavLink relative transition hover:scale-110 ">
               <NavLink to="/" className={({ isActive }) => (isActive ? 'headerNavLinkIsActive' : '')}>
                 Blog
