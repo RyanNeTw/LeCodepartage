@@ -13,28 +13,31 @@ import LegalNotice from './pages/legalNotice';
 import MainPage from './pages/main';
 import Privacy from './pages/privacy';
 import ScrollToTop from './components/ScrollToTop';
+import { SearchProvider } from './contexts/SearchProvider';
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Header />
-        <ScrollToTop>
-          <Routes>
-            <Route path="/" element={<MainPage />} />
-            <Route path="/a-propos" element={<AboutPage />} />
-            <Route path="/auteur/:name" element={<AuthorPage />} />
-            <Route path="/article/:name" element={<ArticlePage />} />
-            <Route path="/article/comments/:name" element={<CommentsPage />} />
-            <Route path="/contacte" element={<ContactPage />} />
-            <Route path="/mentions-légales" element={<LegalNotice />} />
-            <Route path="/confidentialité" element={<Privacy />} />
-            <Route path="/cgu" element={<Cgu />} />
-            <Route path="*" element={<Error404 />} />
-          </Routes>
-        </ScrollToTop>
-        <Footer />
-      </BrowserRouter>
+      <SearchProvider>
+        <BrowserRouter>
+          <Header />
+          <ScrollToTop>
+            <Routes>
+              <Route path="/" element={<MainPage />} />
+              <Route path="/a-propos" element={<AboutPage />} />
+              <Route path="/auteur/:name" element={<AuthorPage />} />
+              <Route path="/article/:name" element={<ArticlePage />} />
+              <Route path="/article/comments/:name" element={<CommentsPage />} />
+              <Route path="/contacte" element={<ContactPage />} />
+              <Route path="/mentions-légales" element={<LegalNotice />} />
+              <Route path="/confidentialité" element={<Privacy />} />
+              <Route path="/cgu" element={<Cgu />} />
+              <Route path="*" element={<Error404 />} />
+            </Routes>
+          </ScrollToTop>
+          <Footer />
+        </BrowserRouter>
+      </SearchProvider>
     </>
   );
 }
